@@ -1,362 +1,132 @@
 # Hematology (Malignant) Weekly Report — 2026-W19
 
-> Generated: 2026-05-06 | Sources: CrossRef (Blood, Leukemia, Haematologica, BJH, J Hematol Oncol, Lancet Haematology, Blood Cancer Journal, JCO, NEJM), OncLive, ASH News, ESMO, EHA
-> Coverage: 2026-04-23 to 2026-05-06 | First report — no prior baseline to deduplicate against
+> Generated: 2026-05-06 | Sources: CrossRef (Blood, Leukemia, Haematologica, Blood Advances), OncLive, ASH News, EHA News, ESMO
+> Coverage: 2026-04-22 to 2026-05-06 | Active Phase III trials tracked: 14
 
 ---
 
 ## Summary
 
-Top signals this week:
-
-1. **Ph- ALL** — genetics + MRD integration for treatment allocation; ETP-ALL 3-yr OS 61%; MRD-negative/no HGR subgroup achieves 81% OS at 3 years (Blood, NCT04179929).
-2. **Hodgkin Lymphoma** — Phase 2 E4412: BV/Ipi/Nivo triplet CR 70.3% vs BV/Nivo 64.7%; primary endpoint not met, but triplet shows intriguing 36-month PFS 73% vs 46% in SCT-deferred patients (Blood).
-3. **MPN blast/accelerated phase** — UK real-world 175 pts: median OS 14.9 months overall; only IC → allo-HSCT meaningfully improved survival (OS 24.7 months); ruxolitinib + azacitidine 27.2 months in AP (BJH).
-4. **DLBCL** — cFLIP is non-redundant for ABC-DLBCL pathogenesis; its deletion sensitizes ABC but not GCB cells to TRAIL-induced apoptosis — rationale for cFLIP inhibitor development (Blood).
-5. **GVHD** — Mechanistic dissection: donor XCR1+ cDC drive Th1 gut GVHD; CD11b+ cDC drive Th17; ALDH1A inhibitor WIN18446 specifically targeting CD11b+ cDC improved murine survival (Blood).
+The five most clinically actionable signals this week are as follows. First, the ASC4OPT phase 3b study (Hochhaus et al., *Leukemia*, DOI: 10.1038/s41375-026-02965-8) reports mature Week 96 data on asciminib in CML-CP after ≥2 prior TKIs, showing overall MMR rates of 43.6% at 96 weeks for the overall cohort not in MMR at baseline, with dose-escalation to 200 mg QD achieving MMR in an additional 17.5% of refractory patients. Second, the Intergroup E4412 phase 1/2 randomised trial (Diefenbach et al., *Blood*, DOI: 10.1182/blood.2025029546) shows that BV/Ipi/Nivo achieves a 36-month PFS of 73.0% versus 45.8% for BV/Nivo (HR 0.45; 95% CI 0.19–1.08; 1-sided p=0.03) among SCT-deferred relapsed Hodgkin lymphoma patients, an intriguing signal despite missing its primary endpoint. Third, a prospective cohort analysis of 1011 older adults with hematological malignancies (DuMontier et al., *Haematologica*, DOI: 10.3324/haematol.2025.300233) demonstrates that all three geriatric frailty tools independently predict mortality in a dose-dependent fashion (frail vs. robust HR up to 3.01 by phenotypic frailty), with direct implications for treatment planning. Fourth, a real-world analysis of 278 brexucabtagene autoleucel recipients (Srinagesh et al., *Blood*, DOI: 10.1182/blood.2025031734) demonstrates that prior blinatumomab non-response is significantly associated with inferior outcomes after CAR-T in B-ALL. Fifth, a CRLF2-targeted antibody-drug conjugate (Mohamed et al., *Leukemia*, DOI: 10.1038/s41375-026-02976-5) shows potent preclinical activity in Ph-like ALL, a subgroup with historically poor outcomes and currently lacking targeted therapies.
 
 ---
 
 ## I. AML — Acute Myeloid Leukemia
 
-**Common germline risk variants identified in largest AML GWAS meta-analysis to date.**
-Ranasinghe D et al. *Blood* 2026-04-23. https://doi.org/10.1182/blood.2025031266
+A multi-institutional GWAS meta-analysis of 4,710 AML cases and 12,938 controls (Ranasinghe et al., *Blood*, DOI: 10.1182/blood.2025031266) has identified a novel genome-wide significant risk locus for pan-AML at 2p23.3 (rs4665765; p = 1.35 × 10⁻⁸), within a region encompassing EFR3B, POMC, DNMT3A, and DNAJC27. Notably, this locus also significantly associates with patient survival (p = 6.09 × 10⁻³), making it potentially dual-purpose as both a risk and prognostic marker. Additional disease subgroup-specific loci were identified: chromosome 5/7 deletion AML at 1q23.3 (rs12078864; p = 7.0 × 10⁻¹⁰), cytogenetically complex AML at 2q33.3 (rs12988876; p = 3.28 × 10⁻⁸) and 2p21 (rs79918355; p = 1.60 × 10⁻⁹). These findings extend the heritable architecture of AML and implicate clonal hematopoiesis-associated variants in disease predisposition.
 
-A meta-analysis of 6 GWAS (4,710 AML cases, 12,938 controls) identified a new pan-AML risk locus at **2p23.3** (rs4665765; P = 1.35 × 10⁻⁸), spanning EFR3B, POMC, DNMT3A, and DNAJC27; this locus also independently associated with patient survival (P = 6.09 × 10⁻³). Three additional subgroup-specific loci were identified: 1q23.3 for del(5q/7q) AML; 2q33.3 and 2p21 for cytogenetically complex AML. Several variants previously linked to clonal hematopoiesis also conferred AML risk. These data provide population-scale evidence that AML risk is genetically heterogeneous at the subgroup level and highlight DNMT3A-proximal variation as relevant to disease susceptibility and outcome.
+A phase 1/2 study of VCAR33, a donor-derived CD33-directed CAR-T product, in relapsed/MRD-positive AML or MDS after allogeneic HCT has been published (Mushtaq et al., *Blood*, DOI: 10.1182/blood.2025031053). Fifteen patients received VCAR33 across two arms stratified by blast burden. The overall response rate was 20%, with two CR with incomplete count recovery in the high-blast arm and one MRD clearance in the low-blast arm. CRS occurred in 93.3% of patients (all grade <3), while ICANS ≥grade 3 was observed in one patient (6.7%) and grade 3 acute GVHD in one patient (6.7%). Maximum tolerated dose was not determined. Although this early signal is modest, VCAR33 represents an important proof-of-concept for donor-derived CAR-T targeting of AML relapse post-transplant.
 
-**AML mutational profiling — Haematologica review series on clonal hematopoiesis and AML.**
-*Haematologica* 2026-04-23. https://doi.org/10.3324/haematol.2026.289405
+In the molecular characterisation domain, a comprehensive multi-omics study of 23 paediatric AML-M0 cases compared against 1,483 leukemia controls (Kamitori et al., *Leukemia*, DOI: 10.1038/s41375-026-02967-6) identified loss-of-function RUNX1 alterations in 26% and ETV6 in 22%, with activating RAS/FLT3/JAK pathway mutations in 83%. RUNX1 disruption was associated with a stem cell-like transcriptional signature, global DNA hypermethylation, and reduced in vitro sensitivity to cytarabine and anthracyclines, supporting consideration of hypomethylating agents and signalling inhibitors in this rare subgroup.
 
-New review series on mutational profiling in AML launched in Haematologica this week, including a companion introduction to the clonal hematopoiesis series. No new trial data; serves as an educational reference resource.
+A *Haematologica* editorial by DiNardo (DOI: 10.3324/haematol.2026.289405) provides a concise overview of the evolving mutational profiling landscape in AML, signalling increasing clinical integration of IDH1/2, FLT3, NPM1, and TP53 co-mutation data for therapeutic allocation. A review of the transposable element–PARP axis (Zeisig et al., *Blood*, DOI: 10.1182/blood.2025032216) identifies TE reactivation-induced PARP dependence as a novel synthetic lethality vulnerability in epigenetically mutant leukemias, expanding the potential applicability of PARP inhibitors beyond homologous recombination-deficient cancers.
 
-_No new Phase III trial results in AML this week._
+A phase Ib/II Beat AML sub-study of anti-CD33 antibody BI 836858 combined with azacitidine in previously untreated older AML (Hochman et al., *Haematologica*, DOI: 10.3324/haematol.2026.300627) was published; full efficacy data were not included in the abstract but the combination completed enrolment and preliminary safety was acceptable.
 
 ---
 
 ## II. ALL — Acute Lymphoblastic Leukemia
 
-**Genetics + MRD integration for consolidation allocation in adult Ph- ALL (NCT04179929).**
-Ribera J et al. *Blood* 2026-05-04. https://doi.org/10.1182/blood.2025032645
+A landmark prospective cohort study from the ALLOUT trial (NCT04179929; Ribera et al., *Blood*, DOI: 10.1182/blood.2025032645) provides the most comprehensive centrally assessed genetic and MRD-guided treatment allocation data to date in adult Ph-negative ALL. Among 436 patients (median age 39 years, range 18–60; 332 B-ALL, 104 T-ALL), the 3-year OS probability was 64% (95% CI 58%–69%). Critically, patients achieving CR with end-of-induction MRD <0.01% and without high genetic risk (n=109) had a 3-year OS of 81% (70%–89%), compared with 50% (34%–63%) for MRD-negative patients bearing high genetic risk features (KMT2A rearrangements, low hypodiploidy, age >35 years, homozygous TP53 mutations/deletions, or IKZF1+CDKN2A/B co-deletions). For ETP-ALL, the 3-year OS was 61% (37%–79%). By intention to treat, 61% of non-ETP patients were assigned to alloHSCT and 39% to chemotherapy. These data robustly validate the co-integration of genetics and MRD for transplant decision-making and should inform protocol design for adult Ph-negative ALL.
 
-Prospective study of 436 adult Ph- ALL patients (median age 39 years, range 18–60; 332 B-ALL, 104 T-ALL). High genetic risk (HGR) for B-ALL: KMT2A rearrangements, low hypodiploidy, age >35, homozygous TP53 mutations/deletions, or concomitant IKZF1 + CDKN2A/B deletions. HGR for T-ALL: absence of NOTCH1/FBXW7 or K/NRAS or PTEN alterations. All ETP-ALL received a separate induction and were assigned to allo-HSCT.
+A real-world analysis of 278 brexucabtagene autoleucel recipients with relapsed/refractory B-ALL (Srinagesh et al., *Blood*, DOI: 10.1182/blood.2025031734) demonstrated that prior blinatumomab non-response was significantly associated with inferior outcomes following CAR-T cell therapy. This finding has direct sequencing implications: patients progressing through blinatumomab may harbour antigen-level or downstream signalling resistance mechanisms that impair CD19-directed CAR-T efficacy, and such patients warrant early consideration of alternative targets or combination strategies.
 
-By intention-to-treat, 243/397 non-ETP patients (61%) were assigned to allo-HSCT; 157 (39%) to chemotherapy. **3-year OS was 64% (95% CI 58%–69%)** overall. MRD-negative/no-HGR patients (n=109): OS 81% (70%–89%). MRD-negative/HGR patients (n=64): OS 50% (34%–63%) — highlighting residual risk despite MRD clearance when genetics are adverse. ETP-ALL: 3-yr OS 61% (37%–79%).
-
-**Clinical implication:** Centralized MRD combined with HGR genetics allows accurate allocation — MRD clearance alone is insufficient in HGR patients. Supports allo-HSCT for HGR regardless of MRD status.
-
-**CRLF2-targeted ADC demonstrates potent preclinical activity in B-ALL.**
-*Leukemia* 2026 (recent). https://doi.org/10.1038/s41375-026-02976-5
-
-A novel CRLF2-targeted antibody-drug conjugate showed potent anti-leukemic activity in preclinical B-ALL models. Abstract not available; watch for clinical translation.
-
-**Bispecific antibody sequencing in CD19+ ALL.**
-Editorial, *Blood* 2026-04-23. https://doi.org/10.1182/blood.2026033267
-
-Commentary on optimal sequencing of blinatumomab and other CD19-directed bispecifics in ALL, including post-blinatumomab options. No new trial data.
+A novel CRLF2-targeted antibody-drug conjugate (Mohamed et al., *Leukemia*, DOI: 10.1038/s41375-026-02976-5) demonstrated potent anti-leukemic activity in Ph-like ALL preclinical models. CRLF2 rearrangements characterise approximately 50% of Ph-like ALL, a subtype associated with poor outcomes in adolescents and adults, and no targeted agent is currently approved for this molecular subset; this ADC represents an important translational advance. A companion review by Lertvivatpong and Inaba (*Leukemia*, DOI: 10.1038/s41375-026-02962-x) provides an updated overview of blinatumomab use in paediatric ALL, highlighting evolving evidence for front-line integration.
 
 ---
 
 ## III. CML — Chronic Myeloid Leukemia
 
-**Myeloid blast phase CML with co-occurring t(11;12) — case report.**
-*Haematologica* 2026 (recent). https://doi.org/10.3324/haematol.2025.300433
+The ASC4OPT non-comparative phase 3b study (NCT04948333; Hochhaus et al., *Leukemia*, DOI: 10.1038/s41375-026-02965-8) has now reported 96-week outcomes for asciminib in CML-CP after ≥2 prior TKIs. Among 169 patients not in MMR at baseline (enrolled for unsatisfactory response per ELN 2020 criteria), the overall MMR rate was 39.4% at Week 48 (40 mg BID arm: 43.4%; 80 mg QD arm: 35.4%) and 43.6% at Week 96 (40 mg BID: 45.8%; 80 mg QD: 41.5%). Among 40 patients who received dose escalation to 200 mg QD for inadequate response, 17.5% achieved MMR at Week 96. For the 30 patients who were TKI-intolerant and already in MMR at baseline, 93.3% maintained MMR at Week 48 and 86.7% at Week 96. No new safety signals were identified at either dosing schedule. These Week 96 data confirm the durable efficacy of asciminib and meaningfully extend the evidence base from the pivotal ASCEMBL trial, supporting its role as a preferred third-line option in CML-CP regardless of dosing schedule.
 
-Case report of CML blast phase with unusual cytogenetic co-occurrence. Educational value; no practice-changing data.
-
-_No major CML trial data this week._
+A report on NUP98::HOXC12, a novel NUP98 fusion partner identified in a myeloid blast phase CML case (Khan et al., *Haematologica*, DOI: 10.3324/haematol.2025.300433), highlights the continuing expansion of rare fusion-driven disease phenotypes that may require individualised therapeutic approaches.
 
 ---
 
 ## IV. CLL / SLL — Chronic Lymphocytic Leukemia
 
-**Pirtobrutinib in relapsed/refractory CLL — Lancet Haematology.**
-*Lancet Haematology* 2026 (recent). https://doi.org/10.1016/s2352-3026(26)00037-2
+A comprehensive genomic analysis of 144 CLL samples with IGH translocations (excluding the common IGH::BCL2, IGH::CCND1, IGH::BCL3, and IGH::MYC) characterised 25 translocation partners by integrating FISH, whole-genome sequencing, and RNA expression profiling (Drewes et al., *Leukemia*, DOI: 10.1038/s41375-026-02902-9). Twelve of the 25 partners were previously unreported. Aberrant class-switch recombination drove 78% of breakpoints in 41 informative cases, with IGHM and IGHG3 most frequently involved. Notably, NKX2.6 (8p21.2) was identified in three unmutated-IGHV cases via illegitimate VDJ recombination, resulting in marked ectopic upregulation (FDR <0.001, logFC=15). METRNL at 17q25 was identified in four additional cases. These findings expand the oncogenic IGH translocation landscape in CLL and may have implications for subgroup-specific risk stratification.
 
-Safety and activity data for pirtobrutinib (non-covalent BTK inhibitor) in r/r patients including those with prior covalent BTK inhibitor exposure. Abstract not available in cache; this aligns with the evolving BRUIN trial data supporting pirtobrutinib post-BTKi. Abstract digest: not captured — monitor full publication.
-
-_No new Phase III CLL data this week beyond the Lancet Haematology pirtobrutinib update._
+A methodological commentary in *Leukemia* (Wang et al., DOI: 10.1038/s41375-026-02970-x) critically evaluates whether measurable residual disease constitutes a universally reliable surrogate endpoint for PFS in CLL trials, concluding that MRD surrogacy cannot be assumed across all novel therapy combinations and that regulatory reliance on undetectable MRD requires further validation in specific therapeutic contexts.
 
 ---
 
 ## V. MDS — Myelodysplastic Syndromes
 
-**CD95+/CD45RA− regulatory T cells predict MDS progression independently of IPSS-R and IPSS-M.**
-Vazquez R et al. *British Journal of Haematology* 2026-05-04. https://doi.org/10.1111/bjh.70504
+A provocative opinion piece in *Haematologica* by Tauro and Tefferi (DOI: 10.3324/haematol.2026.300560) argues that therapeutic development in higher-risk MDS has fundamentally stalled. No phase 3 trial since AZA-001 has replicated the modest survival benefit of azacitidine, despite multiple HMA-based combination strategies. The authors advocate for biologically coherent adaptive platform trials with biomarker-enriched patient selection, arguing that treating the biologically heterogeneous HR-MDS population as a uniform HMA-anchored entity systematically obscures therapeutic signals. This commentary carries direct relevance for interpreting the ongoing wave of negative HR-MDS phase 3 data and for the design of future studies.
 
-Prospective analysis of Tregs in bone marrow of 113 MDS patients at diagnosis and follow-up, using mass cytometry. CD95+/CD45RA− Tregs (the highly activated subset) were significantly expanded in both low- and high-risk MDS. High CD95+/CD45RA− Tregs correlated with increased risk of disease progression **independently of IPSS-R and IPSS-M** in multivariate analysis. Low CD95+/CD45RA− Tregs associated with TET2/IDH mutations and autoimmune features; high levels with progression risk. Tregs remained stable in HMA responders, accumulating only in progressors. These data support Treg subpopulation profiling as a novel prognostic layer in MDS.
+In the molecular domain, *Leukemia* published a study characterising the in vivo consequences of U2AF1 S34F and Q157R hotspot mutations in myeloid neoplasms (Alberti et al., DOI: 10.1038/s41375-026-02974-7). Mice expressing U2af1 S34F showed more severe reductions in blood and bone marrow cell counts and reduced stem cell repopulating ability compared with U2af1 Q157R mice. Gene expression and RNA splicing targets were largely unique between the two mutations in both murine and human samples, supporting the argument that these should be treated as biologically distinct entities in clinical classification and trial design. A debate on the appropriate classification of MDS with isolated del(5q) and TP53 multihit alterations was also published (Montoro et al., *Leukemia*, DOI: 10.1038/s41375-026-02939-w), reflecting ongoing nosological uncertainty at the interface of MDS and secondary AML.
 
 ---
 
-## VI. MPN — Myeloproliferative Neoplasms (PV / ET / MF / Accelerated and Blast Phase)
+## VI. MPN — Myeloproliferative Neoplasms (PV / ET / MF)
 
-**Real-world outcomes in MPN accelerated and blast phase — UK multi-centre cohort (n=175).**
-Rampotas A et al. *British Journal of Haematology* 2026-05-03. https://doi.org/10.1111/bjh.70511
+A comprehensive review of MDM2 inhibitors in myeloid cancers (Al-Ali et al., *Leukemia*, DOI: 10.1038/s41375-026-02975-6) provides a timely synthesis of the clinical development of MDM2-p53 axis targeting in MPN, particularly myelofibrosis. While early phase 3 trials in AML were negative, recent studies in myelofibrosis show clinically meaningful spleen volume responses, symptom improvement, and molecular responses in TP53 wild-type patients. The review highlights that JAK–STAT activation suppresses p53 function via MDM2 overexpression in MPN, providing mechanistic rationale for MDM2 inhibitor use in this setting. Rational combination strategies with JAK inhibitors, BCL-2 antagonists, and interferons are discussed, alongside resistance mechanisms including TP53-mutant clonal selection, which remains a clinical safety concern requiring prospective monitoring.
 
-Retrospective UK analysis, 2013–2025. 69 MPN-AP, 106 MPN-BP; median age 71 years at transformation. Median follow-up 45.2 months.
-
-| Subgroup / Treatment | Median OS |
-|---|---|
-| MPN-AP overall | 25.3 months |
-| MPN-BP overall | 6.7 months |
-| IC → allo-HSCT | 24.7 months |
-| Ruxolitinib + azacitidine (AP) | 27.2 months |
-| Venetoclax-based regimens | 14.9 months |
-| IC alone (no HSCT) | Poor; selection bias applies |
-
-Multivariable analysis identified IC and venetoclax as independently associated with better outcomes (patient selection caveat); TP53 mutation predicted inferior survival. Febrile neutropenia/sepsis was the dominant IC toxicity; venetoclax caused prolonged cytopenias. No UK consensus treatment algorithm currently exists. **Allo-HSCT remains the only curative option** and should be planned upfront for eligible transformation patients.
-
-**Pediatric myelofibrosis — genetic overview.**
-Editorial, *Blood* 2026-04-30. https://doi.org/10.1182/blood.2025032708
-
-Review of the genetics underpinning pediatric myelofibrosis. Educational reference.
+A commentary in *Blood* (Al-Jumaili and Parisi, DOI: 10.1182/blood.2025032708) provides an overview of the genetic landscape of paediatric myelofibrosis, a rare entity with distinct pathobiological drivers compared with adult MF. Separately, a retrospective single-centre study of alpha-1-antitrypsin for steroid-refractory and ruxolitinib-refractory acute GVHD of the gastrointestinal tract (Yehudai-Ofir et al., *Haematologica*, DOI: 10.3324/haematol.2026.300541) demonstrated favourable safety and efficacy profiles, relevant to MPN patients who undergo alloHSCT.
 
 ---
 
 ## VII. DLBCL & Aggressive B-cell Lymphoma
 
-**cFLIP is required for ABC-DLBCL pathogenesis; deletion sensitizes to TRAIL-mediated apoptosis.**
-Bariboloka K et al. *Blood Journal* 2026-04-23. https://doi.org/10.1182/blood.2026033320
+A preclinical study in *Blood* (Bariboloka et al., DOI: 10.1182/blood.2026033320) demonstrates that cFLIP—the principal inhibitor of extrinsic apoptosis—is essential for DLBCL pathogenesis in a Myd88-overexpressing, BCL2-overexpressing murine model. B cell-specific deletion of the Cflar gene encoding cFLIP prevented lymphomagenesis. In human cell lines, cFLIP absence sensitised ABC-DLBCL (but not GCB-DLBCL) to TRAIL- and LPS-induced, caspase-8-mediated apoptosis, while also suppressing pro-inflammatory cytokines in ABC-subtype cells. These data provide a mechanistic rationale for developing cFLIP inhibitors preferentially in the ABC subtype.
 
-Using a MYD88-driven + BCL2-overexpressing autochthonous murine DLBCL model, B-cell-specific Cflar (cFLIP gene) deletion **prevented lymphomagenesis**. In human lymphoma cells, cFLIP absence sensitized ABC- but not GCB-DLBCL to TRAIL- or LPS-induced caspase-8-mediated apoptosis. cFLIP also suppressed pro-inflammatory cytokines at the transcriptional level specifically in ABC subtype. These data provide the first genetic-level demonstration that extrinsic apoptosis must be blocked (via cFLIP) for DLBCL development when intrinsic apoptosis is already suppressed, and establish a rationale for cFLIP inhibitors in **ABC-DLBCL specifically**.
+A review of PET positivity after chemoimmunotherapy in DLBCL (Armitage et al., *Blood Advances*, DOI: 10.1182/bloodadvances.2025019273) emphasises that 20–40% of patients with Deauville score 4 have false-positive scans and do not relapse. The authors highlight that circulating tumour DNA may distinguish true residual disease from false-positive PET results and caution against reflexive salvage therapy based on PET alone. Longitudinal single-cell RNA sequencing of glofitamab-treated relapsed/refractory B-NHL patients (Schmeing et al., *Blood Advances*, DOI: 10.1182/bloodadvances.2025016925) reveals that maintenance of naïve-like "fresher" cytotoxic T-cell states at early time points is the dominant correlate of complete metabolic response, and that 4-1BB costimulation increases this phenotype and enhances antitumour efficacy in preclinical models. Glofitamab was also shown to cross the blood-brain barrier and demonstrate activity in primary and secondary CNS lymphoma (Neumann et al., *Blood Advances*, DOI: 10.1182/bloodadvances.2025019322), extending its potential clinical utility.
 
-**Real-world Pola-R-CHP vs R-CHOP peripheral neuropathy comparison in DLBCL.**
-Nakamura N et al. *BJH* 2026-04-29. https://doi.org/10.1111/bjh.70524
-
-Real-world Japanese comparison of peripheral neuropathy and treatment delivery between polatuzumab-R-CHP and R-CHOP. Abstract digest not available; clinically important for toxicity profiling in the post-POLARIX era.
-
-**Future of DLBCL therapy — OncLive expert review.**
-"Future of DLBCL Therapy Hinges on Optimal Use of CAR T-Cell Therapy, Bispecifics, and Other Novel Strategies." OncLive, 2025-06-26.
-
-Expert discussion on sequencing CAR-T vs bispecifics in R/R DLBCL post-standard therapy. No new trial data.
+A targeted circulating tumour DNA analysis of copy number aberrations in 123 patients with high-risk LBCL (Arffman et al., *Leukemia*, DOI: 10.1038/s41375-026-02955-w) found CNAs detectable in 76% of patients at diagnosis, with a robust correlation (R=0.81) between targeted and whole-genome CNA profiles. TP53 loss detected by ctDNA independently outperformed FISH-based TP53/17p analysis for prognostic risk assessment, supporting ctDNA-based CNA profiling as a clinically implementable, minimally invasive tool.
 
 ---
 
 ## VIII. Indolent Lymphoma (FL, MCL, MZL)
 
-**Baseline ctDNA predicts POD24 in untreated FL — GALLIUM trial analysis.**
-Lutterbeck C et al. *Haematologica* 2026-04-23. https://doi.org/10.3324/haematol.2025.289111
+A ctDNA analysis of baseline plasma samples from the global phase 3 GALLIUM trial (Lutterbeck et al., *Haematologica*, DOI: 10.3324/haematol.2025.289111) evaluated mutant molecules per millilitre (MMPM) as a prognostic marker in 423 patients with untreated follicular lymphoma treated with obinutuzumab- or rituximab-based chemoimmunotherapy. A cross-validated cutoff of 168.57 MMPM identified a high baseline ctDNA group with significantly shorter PFS (HR 2.2; 95% CI 1.8–2.6). Baseline ctDNA added prognostic value beyond FLIPI (AUROC 0.69 vs. 0.57), FLIPI-2 (0.69 vs. 0.59), and SPD (0.69 vs. 0.58) for predicting POD24 in univariate analysis and consistently improved AUROC in multivariate models. This result was maintained across CHOP/CVP and bendamustine regimens. These findings establish baseline ctDNA as a clinically actionable stratification tool for FL risk assessment and support its integration into future trial designs.
 
-Baseline plasma ctDNA (mutant molecules per mL, MMPM) measured in the Phase 3 GALLIUM trial (obinutuzumab + chemo vs rituximab + chemo in untreated FL). Cross-validated cutoff of 168.57 MMPM: **high baseline ctDNA significantly associated with shorter PFS (HR = 2.2, 95% CI 1.8–2.6)**. AUROC for POD24 prediction: ctDNA 0.69 vs FLIPI 0.57, FLIPI-2 0.59, SPD 0.58. ctDNA added prognostic value above FLIPI in multivariate models. Consistent across CHOP/CVP and bendamustine regimens. Baseline ctDNA is emerging as a clinically actionable stratification tool for FL.
-
-**DC-SIGN / sIg-Mann / VCAM-1 axis — novel therapeutic target in FL tumor niche.**
-Chiodin G et al. *Blood* 2026-04-30. https://doi.org/10.1182/blood.2025030049
-
-Oligomannose-type glycans on FL surface immunoglobulin (sIg-Mann) engage DC-SIGN on follicular dendritic cells, inducing FL cell adhesion to VCAM-1 via BCR-proximal kinases — promoting retention in the lymph node niche. Blocking anti-DC-SIGN antibody inhibited FL adhesion and survival in vitro. sIg-Mann/DC-SIGN represents a tumor-niche-specific vulnerability with potential for targeted antibody therapy against FL retention.
-
-**Five-year follow-up of pirtobrutinib in r/r MCL — J Hematol Oncol.**
-*J Hematol Oncol* 2026 (recent). https://doi.org/10.1186/s13045-026-01797-4
-
-Five-year follow-up data for pirtobrutinib in relapsed/refractory MCL. Full abstract not captured; this represents the longest follow-up available for a non-covalent BTKi in MCL to date.
-
-**ASH 2025 data in AML, MZL, and Myeloma highlighted by OncLive experts.**
-OncLive, 2025-12-12. Topics include AML and MZL treatment paradigm shifts from ASH 2025.
+The tumour microenvironmental biology of follicular lymphoma was further explored by Chiodin et al. (*Blood*, DOI: 10.1182/blood.2025030049), demonstrating that the interaction of tumour-specific oligomannose-type glycans on surface immunoglobulin (sIg-Mann) with DC-SIGN on follicular dendritic cells induces FL cell adhesion via VCAM-1 and promotes tumour cell survival. Anti-DC-SIGN antibody blockade inhibited both adhesion and survival in primary FL cells in vitro, identifying a novel early therapeutic approach to disrupting FL retention within adaptive tumour niches.
 
 ---
 
 ## IX. Hodgkin Lymphoma & T-cell Lymphoma
 
-**Phase 2 E4412: BV/Ipi/Nivo vs BV/Nivo in relapsed HL — 38-month follow-up.**
-Diefenbach C et al. *Blood* 2026-04-30. https://doi.org/10.1182/blood.2025029546
+The phase 1/2 Intergroup E4412 randomised trial (NCT01896999; Diefenbach et al., *Blood*, DOI: 10.1182/blood.2025029546) assessed brentuximab vedotin (BV) combined with nivolumab (BV/Nivo) versus the triplet BV/Ipi/Nivo in 147 relapsed/refractory classic Hodgkin lymphoma patients aged ≥12 years, with 132 included in the primary efficacy analysis. The primary endpoint of superior CR rate for the triplet was not met: CR rates were 64.7% (95% CI 52.2–75.9%) for BV/Nivo versus 70.3% (57.6–81.1%) for BV/Ipi/Nivo (1-sided p=0.29). Overall PFS did not differ significantly (HR 0.78; 95% CI 0.39–1.57; 1-sided p=0.24) over a median 38.0-month follow-up. However, a pre-specified subgroup analysis of 66 patients who remained progression-free at first scan and did not undergo SCT showed a 36-month PFS of 73.0% (95% CI 54.5–85.0%) with BV/Ipi/Nivo versus 45.8% (26.3–63.4%) with BV/Nivo (HR 0.45; 95% CI 0.19–1.08; 1-sided p=0.03). Grade 3 rash was higher with the triplet (24.6% vs. 9.2% for BV/Nivo), and other grade ≥3 toxicities were comparable (39.3% vs. 38.5%). Patients who proceeded to SCT achieved >90% 36-month PFS in both arms. These results do not support routine use of BV/Ipi/Nivo over BV/Nivo as a pre-SCT salvage, but provide a compelling hypothesis-generating signal for transplant-ineligible or transplant-deferred patients.
 
-Intergroup trial; 147 patients aged ≥12 years randomized 1:1. Primary endpoint: CR rate superiority for triplet.
-
-| Endpoint | BV/Nivo | BV/Ipi/Nivo |
-|---|---|---|
-| CR rate | 64.7% (52.2–75.9) | 70.3% (57.6–81.1) |
-| PFS HR (triplet vs doublet) | — | 0.78 (95% CI 0.39–1.57) |
-| 1-sided P (PFS) | — | 0.24 |
-| Grade ≥3 rash | 9.2% | 24.6% |
-| Grade ≥3 toxicity (excl. rash) | 38.5% | 39.3% |
-
-**Primary endpoint not met.** Among 58 patients who proceeded to SCT, 36-month PFS was >90% in both arms. In 66 SCT-deferred patients: **36-month PFS 73.0% (54.5–85.0) for BV/Ipi/Nivo vs 45.8% (26.3–63.4) for BV/Nivo** (HR 0.45, CI 0.19–1.08; 1-sided P = 0.03). The triplet shows an intriguing disease-control signal in patients wishing to defer or avoid SCT, at the cost of higher rash rates.
-
-**T-cell lymphoma developing after CAR-T therapy — ESMO discussion.**
-ESMO Hematology News, 2024-07-22. Development of T-cell lymphoma after CAR-T therapy highlighted as an emerging safety concern.
+Real-world French LYSA data for brentuximab vedotin plus bendamustine (B2 regimen) in 222 patients with relapsed/refractory Hodgkin lymphoma (Basile et al., *Haematologica*, DOI: 10.3324/haematol.2025.300289) showed ORR 82%, CR rate 69.8%, and 2-year PFS 54.8%. Among 150 transplant-eligible patients, 2-year PFS from B2 initiation was 64.2%, rising to 79.9% in the 102 who proceeded to transplant. In transplant-ineligible patients, despite a CR rate of 69.6%, 2-year PFS was only 35%, underscoring the persistent unmet need in this population. Low haematological toxicity and 80% outpatient administration support B2 as a practical salvage backbone, particularly relevant as front-line checkpoint inhibitor regimens become standard.
 
 ---
 
 ## X. NK/T-cell Lymphoma (Asia Focus)
 
-_No new data specifically for ENKTL or other NK/T-cell lymphoma this week in the fetched sources._
+_No new signal this week._ Readers are referred to previous reports for updates on asparaginase-based regimens and pembrolizumab combinations in extranodal NK/T-cell lymphoma. The immune evasion landscape of primary CNS lymphoma (Pagès-Geli et al., *Haematologica*, DOI: 10.3324/haematol.2025.300015) was characterised using a syngeneic murine model demonstrating that macrophages and microglia are essential for anti-tumour immunity and augment PD-1 checkpoint blockade efficacy specifically when tumour MHC-I expression is retained; MHC-I–deficient PCNSL did not respond to T-cell–based therapies and was controlled exclusively by macrophages. While not specific to NK/T-cell lymphoma, these microenvironmental insights are pertinent to extranodal aggressive lymphomas prevalent in East Asia.
 
 ---
 
 ## XI. Multiple Myeloma
 
-**Plasma Cell Leukemia — How I Treat review.**
-Al Hadidi S et al. *Blood* 2026-05-01. https://doi.org/10.1182/blood.2025032145
+A landmark perspective from Landgren (*Leukemia*, DOI: 10.1038/s41375-026-02979-2) frames the FDA approval of daratumumab for high-risk smoldering multiple myeloma as a historic turning point, representing the first regulatory validation of early intervention in precursor disease. The author argues that advances in molecular biology, imaging, and immunotherapy are progressively collapsing the diagnostic boundary between SMM and early MM. Future risk stratification tools—including ctDNA, single-cell immune profiling, and minimal residual disease assessment—may reclassify portions of today's SMM population as either early active MM or benign monoclonal gammopathy, raising the provocative question of whether a clinically relevant SMM population will persist as a distinct entity.
 
-Comprehensive "How I Treat" review of PCL (≥5% circulating plasma cells meeting MM criteria). Highlights: frequent extramedullary involvement, cytopenias, BCMA-directed therapies (bispecific antibodies and CAR-T), GPRC5D-targeted therapy, and BCL-2 inhibition show promise in both primary and secondary PCL. Most evidence extrapolated from MM trials; dedicated PCL trials urgently needed. ESMO multiple myeloma CPG updated in 2025.
+A *Blood* "How I Treat" review of plasma cell leukemia (Al Hadidi et al., DOI: 10.1182/blood.2025032145) synthesises current evidence for this ultra-high-risk disease defined by ≥5% circulating plasma cells. The authors review BCMA-directed bispecifics and CAR-T, GPRC5D-targeted therapy (talquetamab), and BCL-2 inhibition (venetoclax, particularly in t(11;14)-positive PCL) as emerging therapeutic approaches. They emphasise that PCL patients have been largely excluded from pivotal MM trials, creating a critical evidence gap requiring dedicated prospective studies.
 
-**Immune biomarkers of infection risk in MM — immune profiling in 1,786 patients.**
-Zabaleta A et al. *Blood* 2026-04-30. https://doi.org/10.1182/blood.2025031744
+Immune biomarkers predicting infection risk in myeloma were characterised in 1,786 patients across multiple disease stages and treatment scenarios using next-generation flow cytometry (Zabaleta et al., *Blood*, DOI: 10.1182/blood.2025031744). Patients developing infection had significantly lower percentages of CD27+ B cells and CD27− NK cells, and a higher CD27−/CD27+ T-cell ratio in bone marrow. An immune risk score based on ≤1 versus ≥2 of these risk factors was associated with infection incidence of 35% vs. 60% (p<0.001). The score (OR 2.31; p<0.001), disease stage, and CD38/BCMA/GPRC5D-directed therapy were independently associated with infection. The peripheral blood correlated strongly with bone marrow profiles, supporting monitoring by routine minimally invasive methods. A *Haematologica* analysis of IVIG in daratumumab-treated MM patients (Lancman et al., DOI: 10.3324/haematol.2025.289215) found that IVIG administration during hypogammaglobulinaemia did not significantly reduce infection rates by incidence rate ratios in this retrospective series, though study power limitations preclude definitive conclusions.
 
-Next-generation flow cytometry immune profiling across 1,786 MM patients. Immune risk factors: lower CD27+ B cells, lower CD27− NK cells, and increased CD27−/CD27+ T-cell ratio in bone marrow. Immune score (≤1 vs ≥2 risk factors) stratified infection incidence: 35% vs 60% (P<.001). Immune score (OR 2.31, P<.001), disease stage, and CD38/BCMA/GPRC5D-targeted therapy were independently associated with infection incidence. Biomarkers detectable in peripheral blood, supporting minimally invasive monitoring.
-
-**Smoldering myeloma redefinition in the era of RRMM treatment expansion.**
-*Leukemia* 2026 (recent). https://doi.org/10.1038/s41375-026-02979-2
-
-Review redefining early myeloma boundaries given evolving treatment indications and improved MRD tools. Conceptual framework for watch-and-wait vs early intervention in SMM.
-
-**MDM2 inhibitors in myeloid cancers — from biology to clinical use.**
-*Leukemia* 2026 (recent). https://doi.org/10.1038/s41375-026-02975-6
-
-Review of MDM2 inhibitor mechanisms and clinical trial progress in AML and related myeloid malignancies. MDM2 inhibition activates p53; synergistic combinations with venetoclax and HMAs being explored. No new trial results.
-
-**MM updates from ASH 2025 — J Hematol Oncol review.**
-*J Hematol Oncol* 2026 (recent). https://doi.org/10.1186/s13045-026-01802-w
-
-Narrative review of key MM abstracts from ASH 2025. Relevant to the ESMO CPG published May 2025 and ongoing shifts with BCMA-directed bispecifics and talquetamab.
-
-**Talquetamab — high ORR in heavily pretreated RRMM (real-world update).**
-*Blood Cancer Journal* 2026 (recent). https://doi.org/10.1038/s41408-026-01512-z
-
-Efficacy and safety data for talquetamab in RRMM patients from real-world experience. Confirms continued high ORR from MajesTEC-5 era. Abstract digest not available.
-
-**Peripheral blood cfDNA detection using clonoSEQ in MM.**
-*Blood Cancer Journal* 2026 (recent). https://doi.org/10.1038/s41408-026-01508-9
-
-Validation of clonoSEQ assay for cfDNA-based MRD detection in MM. Peripheral blood approach reduces reliance on bone marrow sampling for response assessment.
+A gene expression-based dissemination score predicts early spread and poor outcomes in myeloma (Bohra et al., *Leukemia*, DOI: 10.1038/s41375-026-02931-4). In a pre-clinical efficacy study, bedaquiline, an FDA-approved antimycobacterial antibiotic targeting mitochondrial ATP synthase subunit ATP5F1C, was found to synergise potently with carfilzomib in PI-sensitive and PI-resistant MM cells and patient-derived xenograft models (Cumerlato et al., *Haematologica*, DOI: 10.3324/haematol.2025.300157), amplifying proteotoxic stress and enhancing chymotrypsin-like proteasome inhibition. Repurposing of bedaquiline warrants early-phase clinical evaluation in combination with proteasome inhibitors.
 
 ---
 
 ## XII. Transplant & Cellular Therapy (CAR-T / HSCT / GVHD)
 
-**Donor XCR1+ and CD11b+ dendritic cells control Th1 and Th17 gut GVHD respectively.**
-Takahashi S et al. *Blood* 2026-04-30. https://doi.org/10.1182/blood.2025029431
+A comprehensive review of donor selection in the posttransplant cyclophosphamide (PTCy) era (Shaffer, Lee, and Perales, *Blood*, DOI: 10.1182/blood.2025030823) addresses how PTCy-based GVHD prevention has fundamentally altered the traditional HLA-match hierarchy. Recent clinical trials and retrospective studies show that survival outcomes after haploidentical or HLA-mismatched unrelated donor HCT with PTCy approach those of HLA-matched donor recipients, challenging the longstanding preference for matched donors. The authors propose a nuanced framework incorporating HLA and non-HLA parameters, disease-specific considerations, and match probability-based search strategies.
 
-Murine BMT model. Donor XCR1+ conventional DCs (not pDCs) drive α4β7+ alloantigen-specific Th1 expansion in mesenteric lymph nodes → acute gut GVHD. XCR1+ cDC depletion (Xcr1-DTR mice) attenuated lethal GVHD. CD11b+ cDC drive Th17 gut GVHD and were selectively suppressed by ALDH1A inhibitor WIN18446 (pan-ALDH1 inhibitor), improving murine survival via ALDH1A1-specific mechanism. Demonstrates that two distinct cDC subsets drive two distinct gut GVHD effector programs — combined targeting may be required.
+Mechanistic GVHD biology was advanced by a murine study (Takahashi et al., *Blood*, DOI: 10.1182/blood.2025029431) demonstrating distinct and dominant roles for XCR1+ and CD11b+ donor conventional dendritic cell subsets in driving Th1- and Th17-mediated gut aGVHD, respectively. Depletion of donor XCR1+ cDC attenuated lethal GVHD and inhibited α4β7 and alloantigen-specific Th1 expansion; conversely, the ALDH1A1 inhibitor WIN18446 acted via CD11b+ cDC to suppress Th17 differentiation and improve survival. These findings identify donor cDC subsets as therapeutic targets for preventing gut GVHD.
 
-**Donor selection in the posttransplant cyclophosphamide era.**
-Shaffer B et al. *Blood* 2026-04-23. https://doi.org/10.1182/blood.2025030823
+Phase 1/2 trials of donor-derived regulatory T cells (Tregs) in 33 patients with steroid-refractory/dependent chronic GVHD (Soares et al., *Blood Advances*, DOI: 10.1182/bloodadvances.2025017996) demonstrated feasibility and safety of freshly isolated CliniMACS-purified Treg infusions. Global responses were observed in 71% of patients, with 52% achieving ≥2-point improvement in cGVHD severity. Reductions in corticosteroids, ruxolitinib, and mycophenolate were observed in 58%, 83%, and 33% of patients respectively; calcineurin inhibitors were discontinued in 75%. Treg clonotypes were detectable in circulation up to 12 months post-infusion, supporting in vivo persistence. These results support the therapeutic potential of Treg infusions in cGVHD and justify adequately powered phase 2 trials.
 
-Comprehensive "How I Select" review on HCT donor selection in the PTCy era. Key message: HLA-mismatched unrelated and haploidentical donors now approach HLA-matched outcomes with PTCy-based GVHD prevention; hierarchical selection paradigm is changing. HLA and non-HLA (age, sex, CMV, donor-specific antibodies) parameters reviewed.
-
-**CD34+ cell dose in related PBSCT for adult AML — n=2,407.**
-Toda Y et al. *BJH* 2026-04-28. https://doi.org/10.1111/bjh.70506
-
-Retrospective Japanese registry study. CD34+ dose > 2.0 × 10⁶/kg improves platelet engraftment and reduces secondary graft failure but does not improve long-term OS (5-yr OS: 37.2% low, 40.2% intermediate, 37.4% high; P=0.176). Minimum threshold for CD34+ cell dose is clinically meaningful for engraftment; upper threshold does not confer survival benefit.
-
-**Blinatumomab in real-world relapsed/refractory B-cell ALL.**
-*Blood Cancer Journal* 2026 (recent). https://doi.org/10.1038/s41408-026-01506-x
-
-Real-world effectiveness and safety of blinatumomab in adult B-ALL. Confirms activity seen in trials; real-world tolerability data. Abstract digest not available.
-
-**Day-30 IL1RL1, CXCL9, and REG3α prognostic after MMUD transplant (pilot n=53).**
-Wang T et al. *BJH* 2026-04-28. https://doi.org/10.1111/bjh.70507
-
-In 53 mismatched unrelated donor (MMUD) HSCT recipients, Day-30 CXCL9 was associated with OS (HR 5.86, 95% CI 1.21–28.3, P=0.03). Combined CXCL9 + IL1RL1 AUC = 0.86 for 2-year mortality. Biomarkers previously validated in matched-donor settings retain prognostic utility in the MMUD setting. Support pre-emptive intervention strategies.
+A BMTSS report on long-term outcomes in 1,581 older (≥60 years) BMT survivors (≥2 years post-transplant; Bhandari et al., *Blood Advances*, DOI: 10.1182/bloodadvances.2025018477) found severe/life-threatening chronic conditions in 72% of survivors versus 51% of sibling controls (OR 2.9; 95% CI 2.2–3.7). The overall SMR was 5.3 (95% CI 5.0–5.6), with infection-related mortality carrying an especially high SMR of 35.2 (95% CI 30.3–40.6). Second malignant neoplasm risk was 3.8-fold that of the general population, with Hodgkin lymphoma SIR of 18.5 and melanoma SIR of 7.4. These data underscore the substantial long-term health burden of older BMT survivors and the need for structured survivorship programmes.
 
 ---
 
 ## XIII. Active High-Priority Trials — Tracker
 
-| Trial | Disease | Agent | Status / Update |
-|---|---|---|---|
-| NCT04179929 | Ph- ALL (adult) | Genetics + MRD allocation | Published; 3-yr OS 64% (Blood 2026-05-04) |
-| E4412 | Relapsed HL | BV/Ipi/Nivo vs BV/Nivo | Published; primary endpoint not met; SCT-deferred signal (Blood 2026-04-30) |
-| GALLIUM ctDNA substudy | Untreated FL | Baseline ctDNA stratification | Published; HR 2.2 for PFS at 168.57 MMPM cutoff (Haematologica 2026-04-23) |
-| BRUIN (pirtobrutinib) | r/r CLL | Pirtobrutinib | Updated Lancet Haematology data (2026-W19) |
-| MajesTEC-5 / talquetamab | RRMM | Talquetamab | Real-world data published (Blood Cancer Journal, 2026) |
-
----
-
-## XIV. Taiwan Clinical Context
-
-- **AML**: DNMT3A-proximal risk loci (GWAS) confirm biology relevant to clonal hematopoiesis programs at NTUH and VGH; azacitidine + venetoclax is standard in Taiwan for unfit patients.
-- **ALL**: Ph- ALL genetics + MRD-guided allo-HSCT allocation directly applicable to local protocols; ETP-ALL should receive dedicated induction and planned allo-HSCT.
-- **Hodgkin Lymphoma**: BV + checkpoint doublet/triplet not yet widely available through NHI; brentuximab vedotin approved for r/r cHL in Taiwan (special NHI coverage).
-- **DLBCL**: Pola-R-CHP (polatuzumab vedotin) approved for frontline DLBCL in Taiwan; real-world neuropathy comparison from Japan (BJH) is directly relevant to practice at NCKUH/CMUH.
-- **MM**: Talquetamab and GPRC5D-directed therapy not currently NHI-covered; daratumumab-based quadruplets have recently expanded coverage. NCKUH and VGH active in myeloma research.
-- **MPN blast phase**: No HSCT-eligible patient should be denied transplant referral; Taiwan centers (NTUH BMT, CGMH, CMUH) have active allo-HSCT programs for MPN.
-- **NK/T-cell lymphoma**: Taiwan/Asian-specific prevalence remains higher; ENKTL specialist referral to NTUH or CMUH is recommended given rarity.
-
----
-
-## XV. Key Takeaways
-
-1. In adult Ph- ALL, MRD negativity alone is insufficient for treatment de-escalation in HGR patients — allo-HSCT remains indicated regardless of MRD status.
-2. BV/Ipi/Nivo triplet does not improve CR rates vs doublet in relapsed HL but may offer superior disease control in SCT-deferred patients at the cost of higher-grade rash.
-3. MPN blast/accelerated phase has dismal outcomes without allo-HSCT; venetoclax and ruxolitinib/azacitidine provide bridging but are not curative.
-4. cFLIP is a mechanistically validated therapeutic target in ABC-DLBCL specifically — its loss sensitizes extrinsic apoptosis without affecting GCB cells.
-5. Two distinct dendritic cell subsets (XCR1+ vs CD11b+ cDC) mediate Th1 vs Th17 gut GVHD respectively — combinatorial targeting strategies warranted.
-
----
-
-## XVI. Media Digest
-
-| Date | Source | Title |
-|---|---|---|
-| 2025-12-12 | OncLive | Experts Spotlight ASH 2025 Data in AML, MZL, and Myeloma |
-| 2025-09-10 | OncLive | SOHO Spotlight: Practice-Informing Insights from 2025 Annual Meeting |
-| 2025-06-26 | OncLive | Future of DLBCL Therapy: CAR-T, Bispecifics, Novel Strategies |
-| 2026-05-02 | EHA | EHA Articles of Association Changes |
-| 2025-05-12 | ESMO | ESMO Clinical Practice Guideline: Multiple Myeloma |
-| 2024-07-22 | ESMO | T-Cell Lymphoma Development After CAR-T Therapy |
-| 2025-04-01 | ESMO | Talquetamab in Heavily Pretreated RRMM — High ORR |
-
----
-
-## Journal Literature — CrossRef
-
-**Blood** (31 articles; selected clinically relevant):
-
-| Title | Authors | DOI |
-|---|---|---|
-| Genetics and MRD for therapy allocation in adult Ph- ALL | Ribera J et al. | 10.1182/blood.2025032645 |
-| How I Treat Plasma Cell Leukemia | Al Hadidi S et al. | 10.1182/blood.2025032145 |
-| BV + Ipi + Nivo phase 2 in relapsed HL (E4412) | Diefenbach C et al. | 10.1182/blood.2025029546 |
-| cFLIP required for ABC-DLBCL pathogenesis | Bariboloka K et al. | 10.1182/blood.2026033320 |
-| Donor XCR1+/CD11b+ DCs drive gut GVHD (Th1/Th17) | Takahashi S et al. | 10.1182/blood.2025029431 |
-| How I select HCT donors in the PTCy era | Shaffer B et al. | 10.1182/blood.2025030823 |
-| DC-SIGN/sIg-Mann/VCAM-1 axis in FL niche | Chiodin G et al. | 10.1182/blood.2025030049 |
-| Immune biomarkers of infection risk in MM (n=1,786) | Zabaleta A et al. | 10.1182/blood.2025031744 |
-| AML common germline risk variants (GWAS meta-analysis) | Ranasinghe D et al. | 10.1182/blood.2025031266 |
-| TE-PARP axis: synthetic lethality in blood cancer | Zeisig B et al. | 10.1182/blood.2025032216 |
-
-**Leukemia** (21 articles; selected):
-
-| Title | Authors | DOI |
-|---|---|---|
-| CRLF2-targeted ADC in B-ALL | — | 10.1038/s41375-026-02976-5 |
-| MDM2 inhibitors in myeloid cancers | — | 10.1038/s41375-026-02975-6 |
-| Smoldering MM: redefining early myeloma | — | 10.1038/s41375-026-02979-2 |
-
-**Haematologica** (21 articles; selected):
-
-| Title | Authors | DOI |
-|---|---|---|
-| Baseline ctDNA prognostic in untreated FL (GALLIUM) | Lutterbeck C et al. | 10.3324/haematol.2025.289111 |
-| Mutational profiling in AML (review series) | — | 10.3324/haematol.2026.289405 |
-| RNA modification in leukemia stem cells | — | 10.3324/haematol.2026.301076 |
-
-**BJH** (17 articles; selected):
-
-| Title | Authors | DOI |
-|---|---|---|
-| Real-world MPN-AP/BP outcomes, UK (n=175) | Rampotas A et al. | 10.1111/bjh.70511 |
-| CD95+/CD45RA− Tregs predict MDS progression | Vazquez R et al. | 10.1111/bjh.70504 |
-| Day-30 CXCL9/IL1RL1/REG3α in MMUD HSCT | Wang T et al. | 10.1111/bjh.70507 |
-| CD34+ cell dose in related PBSCT, adult AML | Toda Y et al. | 10.1111/bjh.70506 |
-| Pola-R-CHP vs R-CHOP neuropathy (Japan) | Nakamura N et al. | 10.1111/bjh.70524 |
-
-**Lancet Haematology** (9 articles):
-
-| Title | DOI |
-|---|---|
-| Pirtobrutinib in r/r CLL | 10.1016/s2352-3026(26)00037-2 |
-
-**J Hematol Oncol** (3 articles):
-
-| Title | DOI |
-|---|---|
-| Pirtobrutinib 5-yr follow-up in r/r MCL | 10.1186/s13045-026-01797-4 |
-| MM key updates from ASH 2025 | 10.1186/s13045-026-01802-w |
-
-**Blood Cancer Journal** (10 articles; selected):
-
-| Title | DOI |
-|---|---|
-| Blinatumomab real-world in r/r B-ALL | 10.1038/s41408-026-01506-x |
-| Talquetamab real-world in RRMM | 10.1038/s41408-026-01512-z |
-| cfDNA with clonoSEQ in MM | 10.1038/s41408-026-01508-9 |
+| Trial | Disease | Regimen | Phase | Primary Endpoint | Status / Update |
+|---|---|---|---|---|---|
+| ASCEMBL | CML-CP ≥2L | Asciminib vs. bosutinib | III | MMR at Week 96 | Mature data published; see ASC4OPT Week 96 data this week |
+| ASC4OPT (NCT04948333) | CML-CP ≥3L | Asciminib QD vs. BID | 3b | MMR at Week 48 | Week 96 data published this week; MMR 43.6% overall |
+| E4412 (NCT01896999) | R/R cHL | BV/Nivo vs. BV/Ipi/Nivo | 1/2 | CR rate | Published this week; primary endpoint not met; SC
