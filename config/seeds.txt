@@ -1,14 +1,30 @@
-# Breast cancer KOL seed accounts
-# Format: one Twitter handle per line (no @)
-tatianapro
-DrAttai
-NancyLinCC
-Hope_Rugo
-DrEricaMayer
-OncoAlert
-DrJoyceOConnell
-drsusanlovemd
-BCRFcure
-palbociclib
-VKMouret
-Mark_Pegram
+# Hematology KOL seed accounts (shared fallback list)
+# Format: one Twitter/X handle per line (no @)
+# Mode-specific seeds are in source/<mode>/seeds.txt
+
+# Societies
+ASHhematology        # American Society of Hematology
+EHA_hematology       # European Hematology Association
+ISTHorg              # International Society on Thrombosis and Haemostasis
+SOHO_hematology      # Society of Hematologic Oncology
+NHF_Cure             # National Hemophilia Foundation
+
+# Malignant hematology KOLs
+NavneetSNingh        # AML/MDS, MD Anderson
+HarryPErba           # AML, Duke
+JohnCByrd            # CLL, Ohio State
+JorgeCortes3         # CML, Augusta University
+JasonWestin          # DLBCL, MD Anderson
+SagarLonial          # Myeloma, Emory
+NikhilMunshi         # Myeloma, Dana-Farber
+
+# Non-malignant hematology KOLs
+DrJamesBussel        # ITP, Weill Cornell
+DrRobert_Brodsky     # PNH, Johns Hopkins
+WFHemophilia         # World Federation of Hemophilia
+ThalassemiaIntl      # Thalassemia International Federation
+DrSamShulman         # Anticoagulation, McMaster
+
+# General
+OncoAlert            # Real-time oncology news aggregator
+OncLive              # OncLive news

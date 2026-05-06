@@ -1,4 +1,4 @@
-"""Scrape latest breast cancer articles from configured web sources."""
+"""Scrape latest hematology articles from configured web sources."""
 
 import asyncio
 import re
@@ -22,7 +22,7 @@ class Article:
     tags: list[str] = field(default_factory=list)
 
 
-def _is_bc_relevant(text: str) -> bool:
+def _is_relevant(text: str) -> bool:
     tl = text.lower()
     return any(kw.lower() in tl for kw in config.keywords())
 
@@ -66,7 +66,7 @@ def _parse_rss_items(xml_text: str, source_name: str, bc_filter: bool = True) ->
             summary = BeautifulSoup(raw, "html.parser").get_text()[:300]
 
         combined = title + " " + summary
-        if bc_filter and not _is_bc_relevant(combined):
+        if bc_filter and not _is_relevant(combined):
             continue
 
         articles.append(Article(
@@ -99,9 +99,11 @@ async def _fetch_google_news(client: httpx.AsyncClient, src: dict) -> list[Artic
     max_items = src.get("max_items", 20)
     noise_pat = re.compile(src["noise_filter"], re.I) if src.get("noise_filter") else None
 
+    query_term = src.get("query", "hematology")
+    query_encoded = query_term.replace(" ", "+")
     feed_url = (
         f"https://news.google.com/rss/search"
-        f"?q=site:{domain}+breast+cancer&hl=en-US&gl=US&ceid=US:en"
+        f"?q=site:{domain}+{query_encoded}&hl=en-US&gl=US&ceid=US:en"
     )
     try:
         r = await client.get(feed_url, timeout=20)
@@ -137,7 +139,7 @@ async def _fetch_google_news(client: httpx.AsyncClient, src: dict) -> list[Artic
 
         if noise_pat and noise_pat.search(title):
             continue
-        if not _is_bc_relevant(title):
+        if not _is_relevant(title):
             continue
 
         articles.append(Article(
@@ -173,20 +175,19 @@ async def fetch_all(days: int = 7) -> dict[str, list[Article]]:
 def format_articles_md(results: dict[str, list[Article]]) -> str:
     """Render scraped articles as a markdown section for the weekly report."""
     source_names = " / ".join(results.keys())
-    lines = [f"\n## 媒體動態 — {source_names}\n"]
+    lines = [f"\n## News — {source_names}\n"]
     for source, articles in results.items():
         if not articles:
-            lines.append(f"\n### {source}\n\n_本週未取得相關文章_\n")
+            lines.append(f"\n### {source}\n\n_No relevant articles retrieved this week_\n")
             continue
-        lines.append(f"\n### {source}（{len(articles)} 篇乳癌相關）\n")
-        lines.append("| 標題 | 日期 | 關鍵詞 |")
-        lines.append("|------|------|--------|")
+        lines.append(f"\n### {source} ({len(articles)} articles)\n")
+        lines.append("| Title | Date | Keywords |")
+        lines.append("|-------|------|----------|")
         for a in articles[:15]:
             date_str = a.published or "—"
             tags_str = ", ".join(a.tags[:4])
             # Escape pipes in title to avoid breaking Markdown table columns
             safe_title = a.title.replace("|", "｜")
-            title_md = f"[{safe_title}]({a.url})"
             lines.append(f"| {title_md} | {date_str} | {tags_str} |")
         lines.append("")
     return "\n".join(lines)

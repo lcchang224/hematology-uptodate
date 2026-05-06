@@ -1,18 +1,37 @@
 #!/usr/bin/env python3
 """
-Breast Cancer Twitter Trend Tracker
+Hematology Weekly Trend Tracker
 
 Usage:
-    python main.py setup          # save Twitter cookies (auth_token + ct0)
-    python main.py fetch          # fetch tweets from tracked KOLs
-    python main.py discover       # expand KOL list from recent mentions
-    python main.py report         # generate weekly .md report
-    python main.py run            # fetch + discover + report in one shot
-    python main.py accounts       # list tracked accounts
+    python main.py scrape    [-m malignant|benign]  # scrape web news sources
+    python main.py journals  [-m malignant|benign]  # fetch CrossRef journal articles
+    python main.py report    [-m malignant|benign]  # generate weekly .md report
+    python main.py run       [-m malignant|benign]  # scrape + journals + report
+    python main.py fetch     [-m malignant|benign]  # fetch tweets (requires Twitter creds)
+    python main.py discover  [-m malignant|benign]  # expand KOL list from recent mentions
+    python main.py accounts                         # list tracked Twitter accounts
+    python main.py setup                            # save Twitter cookies
+
+Mode defaults to "malignant" if -m / --mode is not specified.
+Reports are written to reports/<mode>-YYYY-WNN.md
 """
 
+import os
 import sys
 from pathlib import Path
+
+# -- Resolve mode BEFORE importing src so HEMA_MODE is set when config.py loads --
+_mode = "malignant"
+for _i, _a in enumerate(sys.argv):
+    if _a in ("-m", "--mode") and _i + 1 < len(sys.argv):
+        _mode = sys.argv[_i + 1]
+        break
+if _mode not in ("malignant", "benign"):
+    print(f"Error: --mode must be 'malignant' or 'benign', got '{_mode}'", file=sys.stderr)
+    sys.exit(1)
+os.environ["HEMA_MODE"] = _mode
+# ---------------------------------------------------------------------------------
+
 from rich.console import Console
 from rich.table import Table
 
@@ -33,7 +52,7 @@ def _load_creds() -> tuple[str, str, str, str] | None:
 
 def _save_creds(username: str, email: str, auth_token: str, ct0: str):
     CREDS_FILE.parent.mkdir(exist_ok=True)
-    CREDS_FILE.write_text(f"{username}\n{email}\n{auth_token}\n{ct0}")
+    CREDS_FILE.write_text(f"{username}\n{email}\n{auth_token}\n{ct0}", encoding="utf-8")
     CREDS_FILE.chmod(0o600)
 
 
@@ -41,13 +60,13 @@ def cmd_setup(username: str = None, email: str = None,
               auth_token: str = None, ct0: str = None):
     if not all([username, email, auth_token, ct0]):
         console.print("\n[bold cyan]Twitter Cookie Setup[/bold cyan]")
-        console.print("Get auth_token and ct0 from browser DevTools → Application → Cookies → x.com\n")
+        console.print("Get auth_token and ct0 from browser DevTools -> Application -> Cookies -> x.com\n")
         username = input("Twitter username (without @): ").strip()
         email = input("Twitter email: ").strip()
         auth_token = input("auth_token cookie value: ").strip()
         ct0 = input("ct0 cookie value: ").strip()
     _save_creds(username, email, auth_token, ct0)
-    console.print("[green]✓ Credentials saved.[/green]")
+    console.print("[green]OK Credentials saved.[/green]")
 
 
 def _require_creds() -> tuple[str, str, str, str]:
@@ -62,9 +81,9 @@ def _require_creds() -> tuple[str, str, str, str]:
 def cmd_fetch():
     username, email, auth_token, ct0 = _require_creds()
     db.init_db()
-    console.print("\n[bold]Fetching tweets...[/bold]")
+    console.print(f"\n[bold]Fetching tweets (mode: {_mode})...[/bold]")
     fetcher.fetch(username, email, auth_token, ct0)
-    console.print("[green]✓ Fetch complete.[/green]")
+    console.print("[green]OK Fetch complete.[/green]")
 
 
 def cmd_discover():
@@ -76,9 +95,9 @@ def cmd_discover():
 
 def cmd_report(days: int = 7):
     db.init_db()
-    console.print(f"\n[bold]Generating report (last {days} days)...[/bold]")
+    console.print(f"\n[bold]Generating report (mode: {_mode}, last {days} days)...[/bold]")
     path = reporter.write_report(days=days)
-    console.print(f"[green]✓ Report written → {path}[/green]")
+    console.print(f"[green]OK Report written -> {path}[/green]")
     lines = path.read_text().splitlines()
     console.print("\n[dim]Preview:[/dim]\n")
     for line in lines[:40]:
@@ -102,7 +121,7 @@ def cmd_accounts():
         t.add_row(
             f"@{a['handle']}",
             a["display_name"] or "",
-            f"{a['followers']:,}" if a["followers"] else "—",
+            f"{a['followers']:,}" if a["followers"] else "--",
             a["discovered_via"] or "seed",
         )
     console.print(t)
@@ -110,17 +129,16 @@ def cmd_accounts():
 
 def cmd_scrape(days: int = 7):
     import asyncio, json
-    console.print("\n[bold]Scraping OncDaily & OncLive...[/bold]")
+    console.print(f"\n[bold]Scraping web sources (mode: {_mode})...[/bold]")
     results = asyncio.run(webscraper.fetch_all(days=days))
     for source, articles in results.items():
-        console.print(f"  [cyan]{source}[/cyan]: {len(articles)} breast cancer articles found")
+        console.print(f"  [cyan]{source}[/cyan]: {len(articles)} articles found")
         for a in articles[:5]:
-            console.print(f"    • {a.title[:80]}")
+            console.print(f"    * {a.title[:80]}")
             if a.url:
                 console.print(f"      {a.url}")
 
-    # Save to JSON for reference and report integration
-    out = Path(__file__).parent / "data" / "webscrape_cache.json"
+    out = Path(__file__).parent / "data" / f"webscrape_cache_{_mode}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(
         {src: [{"title": a.title, "url": a.url, "source": a.source,
@@ -128,44 +146,47 @@ def cmd_scrape(days: int = 7):
                for a in arts]
          for src, arts in results.items()},
         ensure_ascii=False, indent=2
-    ))
-    console.print(f"[green]✓ Cached → {out}[/green]")
+    ), encoding="utf-8")
+    console.print(f"[green]OK Cached -> {out}[/green]")
     return results
 
 
 def cmd_journals():
     import asyncio, json
-    console.print("\n[bold]Fetching journal articles via CrossRef...[/bold]")
+    console.print(f"\n[bold]Fetching journal articles via CrossRef (mode: {_mode})...[/bold]")
     results = asyncio.run(crossref_fetcher.fetch_all())
     for journal, articles in results.items():
-        console.print(f"  [cyan]{journal}[/cyan]: {len(articles)} BC articles")
+        console.print(f"  [cyan]{journal}[/cyan]: {len(articles)} articles")
         for a in articles[:4]:
-            has_abs = "✓" if a.abstract_digest else "—"
+            has_abs = "Y" if a.abstract_digest else "N"
             console.print(f"    [{has_abs}] {a.title[:75]}")
             console.print(f"        https://doi.org/{a.doi}")
 
-    out = Path(__file__).parent / "data" / "journals_cache.json"
+    out = Path(__file__).parent / "data" / f"journals_cache_{_mode}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(
-        {j: [{"title": a.title, "doi": a.doi, "journal": a.journal,
-              "authors": a.authors, "published": a.published,
-              "abstract": a.abstract, "abstract_digest": a.abstract_digest,
-              "tags": a.tags, "url": a.url}
-             for a in arts]
-         for j, arts in results.items()},
+        {jn: [{"title": a.title, "doi": a.doi, "journal": a.journal,
+               "authors": a.authors, "published": a.published,
+               "abstract": a.abstract, "abstract_digest": a.abstract_digest,
+               "tags": a.tags, "url": a.url}
+              for a in arts]
+         for jn, arts in results.items()},
         ensure_ascii=False, indent=2
-    ))
-    console.print(f"[green]✓ Cached → {out}[/green]")
+    ), encoding="utf-8")
+    console.print(f"[green]OK Cached -> {out}[/green]")
     return results
 
 
 def cmd_run():
-    cmd_fetch()
-    cmd_discover()
     cmd_scrape()
     cmd_journals()
     cmd_report()
 
+
+# Strip -m/--mode from argv before command dispatch
+_clean_argv = [a for i, a in enumerate(sys.argv)
+               if a not in ("-m", "--mode")
+               and (i == 0 or sys.argv[i-1] not in ("-m", "--mode"))]
 
 COMMANDS = {
     "setup": cmd_setup,
@@ -179,7 +200,7 @@ COMMANDS = {
 }
 
 if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "run"
+    cmd = _clean_argv[1] if len(_clean_argv) > 1 else "run"
     if cmd not in COMMANDS:
         console.print(__doc__)
         sys.exit(1)

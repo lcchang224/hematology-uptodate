@@ -1,0 +1,44 @@
+# Twitter search queries for hematological malignancy content
+# Used by: fetcher.py
+# Tips:
+#   - Keep each query focused on one disease or drug class
+#   - "lang:en" limits to English tweets
+#   - OR groups synonyms; use quoted phrases for trial names
+
+search_queries:
+  # AML
+  - "(AML OR acute myeloid leukemia) (FLT3 OR IDH OR venetoclax OR azacitidine)"
+  - "(AML) (gilteritinib OR midostaurin OR quizartinib OR ivosidenib OR enasidenib)"
+  - "(AML OR leukemia) (FDA OR approval OR OS OR EFS OR CR OR abstract)"
+
+  # ALL
+  - "(ALL OR acute lymphoblastic leukemia) (blinatumomab OR inotuzumab OR CAR-T OR ponatinib)"
+  - "(Ph+ ALL OR Philadelphia ALL) (dasatinib OR ponatinib OR TKI)"
+
+  # CML
+  - "(CML OR chronic myeloid leukemia) (asciminib OR TKI OR TFR OR treatment-free remission)"
+  - "(CML) (nilotinib OR dasatinib OR bosutinib OR ponatinib OR imatinib)"
+
+  # CLL
+  - "(CLL OR chronic lymphocytic leukemia) (BTK OR venetoclax OR ibrutinib OR acalabrutinib OR zanubrutinib)"
+  - "(CLL) (pirtobrutinib OR bispecific OR CAR-T OR MRD)"
+
+  # MDS / MPN
+  - "(MDS OR myelodysplastic) (luspatercept OR imetelstat OR azacitidine OR decitabine)"
+  - "(myelofibrosis OR polycythemia vera OR MPN) (ruxolitinib OR fedratinib OR pacritinib OR momelotinib)"
+
+  # Lymphoma
+  - "(DLBCL OR diffuse large B-cell) (R-CHOP OR polatuzumab OR CAR-T OR epcoritamab OR glofitamab)"
+  - "(lymphoma) (bispecific OR CAR-T OR loncastuximab OR tafasitamab OR mosunetuzumab)"
+  - "(follicular lymphoma OR mantle cell lymphoma OR Hodgkin) (FDA OR approval OR trial OR data)"
+  - "(NK/T-cell lymphoma OR NKTCL OR ENKTL) (asparaginase OR SMILE OR DDGP)"
+
+  # Multiple Myeloma
+  - "(myeloma OR multiple myeloma) (BCMA OR daratumumab OR carfilzomib OR pomalidomide OR lenalidomide)"
+  - "(myeloma) (CAR-T OR bispecific OR teclistamab OR ciltacabtagene OR elranatamab OR talquetamab)"
+  - "(myeloma) (selinexor OR belantamab OR isatuximab OR FDA OR approval OR abstract)"
+
+  # Transplant / General
+  - "(HSCT OR bone marrow transplant OR allogeneic) (GVHD OR GVL OR outcomes)"
+  - "(hematology OR hematologic malignancy) (FDA OR EMA OR approval OR OS OR PFS) lang:en"
+  - "(#ASH OR #EHA OR #SOHO OR #ICML) (leukemia OR lymphoma OR myeloma OR MDS OR MPN)"

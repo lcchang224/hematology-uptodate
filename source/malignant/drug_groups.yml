@@ -1,0 +1,235 @@
+# Drug / target group definitions for tweet and article classification
+# Used by: reporter.py (trend aggregation)
+# Format: group_name: [keyword, ...]  (case-insensitive matching)
+
+drug_groups:
+  BTK inhibitors:
+    - BTK inhibitor
+    - ibrutinib
+    - Imbruvica
+    - acalabrutinib
+    - Calquence
+    - zanubrutinib
+    - Brukinsa
+    - pirtobrutinib
+    - Jaypirca
+    - nemtabrutinib
+    - ALPINE
+    - ELEVATE-RR
+    - SEQUOIA
+
+  BCL2 inhibitors:
+    - BCL2
+    - venetoclax
+    - Venclexta
+    - Venclyxto
+    - navitoclax
+    - VIALE-A
+    - CLL14
+    - MURANO
+
+  Anti-CD20:
+    - rituximab
+    - Rituxan
+    - MabThera
+    - obinutuzumab
+    - Gazyva
+    - ofatumumab
+    - Arzerra
+    - CD20
+
+  CAR-T cell therapy:
+    - CAR-T
+    - CAR T-cell
+    - chimeric antigen receptor
+    - axicabtagene ciloleucel
+    - axi-cel
+    - Yescarta
+    - lisocabtagene maraleucel
+    - liso-cel
+    - Breyanzi
+    - brexucabtagene autoleucel
+    - Tecartus
+    - ciltacabtagene autoleucel
+    - cilta-cel
+    - Carvykti
+    - idecabtagene vicleucel
+    - ide-cel
+    - Abecma
+    - ZUMA
+    - TRANSFORM
+    - CARTITUDE
+    - KarMMa
+
+  Bispecific antibodies:
+    - bispecific
+    - blinatumomab
+    - Blincyto
+    - epcoritamab
+    - Epkinly
+    - glofitamab
+    - Columvi
+    - mosunetuzumab
+    - Lunsumio
+    - odronextamab
+    - teclistamab
+    - Tecvayli
+    - elranatamab
+    - Elrexfio
+    - talquetamab
+    - Talvey
+    - CD3
+    - BCMA bispecific
+
+  Hypomethylating agents:
+    - hypomethylating agent
+    - HMA
+    - azacitidine
+    - Vidaza
+    - decitabine
+    - Dacogen
+    - cedazuridine
+    - ASTX727
+    - oral azacitidine
+    - CC-486
+    - Onureg
+    - QUAZAR
+
+  IMiDs & CELMoDs:
+    - IMiD
+    - lenalidomide
+    - Revlimid
+    - pomalidomide
+    - Pomalyst
+    - thalidomide
+    - iberdomide
+    - mezigdomide
+    - CELMoD
+
+  Proteasome inhibitors:
+    - proteasome inhibitor
+    - bortezomib
+    - Velcade
+    - carfilzomib
+    - Kyprolis
+    - ixazomib
+    - Ninlaro
+    - IKEMA
+    - CANDOR
+
+  Anti-CD38:
+    - CD38
+    - daratumumab
+    - Darzalex
+    - isatuximab
+    - Sarclisa
+    - CASSIOPEIA
+    - MAIA
+    - PERSEUS
+    - GRIFFIN
+
+  FLT3 inhibitors:
+    - FLT3
+    - midostaurin
+    - Rydapt
+    - gilteritinib
+    - Xospata
+    - quizartinib
+    - Vanflyta
+    - sorafenib
+    - ADMIRAL
+    - RATIFY
+
+  IDH inhibitors:
+    - IDH1
+    - IDH2
+    - ivosidenib
+    - Tibsovo
+    - enasidenib
+    - Idhifa
+    - olutasidenib
+    - Rezlidhia
+    - AG-221
+    - AG-120
+
+  JAK inhibitors:
+    - JAK
+    - JAK2
+    - ruxolitinib
+    - Jakafi
+    - Jakavi
+    - fedratinib
+    - Inrebic
+    - pacritinib
+    - Vonjo
+    - momelotinib
+    - Ojjaara
+    - COMFORT
+    - SIMPLIFY
+    - MOMENTUM
+
+  ADCs (hematology):
+    - antibody-drug conjugate
+    - ADC
+    - polatuzumab vedotin
+    - Polivy
+    - loncastuximab tesirine
+    - Zynlonta
+    - inotuzumab ozogamicin
+    - Besylomab
+    - gemtuzumab ozogamicin
+    - Mylotarg
+    - brentuximab vedotin
+    - Adcetris
+    - belantamab mafodotin
+    - POLARIX
+
+  Checkpoint inhibitors (hematology):
+    - PD-1
+    - PD-L1
+    - pembrolizumab
+    - Keytruda
+    - nivolumab
+    - Opdivo
+    - checkpoint inhibitor
+    - KEYNOTE-204
+    - CheckMate-205
+
+  Selinexor & XPO1:
+    - selinexor
+    - Xpovio
+    - XPO1
+    - eltanexor
+
+  Asciminib & STAMP:
+    - asciminib
+    - Scemblix
+    - STAMP inhibitor
+    - ASCEMBL
+
+  Ponatinib & 3rd-gen TKIs:
+    - ponatinib
+    - Iclusig
+    - olverembatinib
+    - OPTIC
+
+# Conference / event keywords
+conference_keywords:
+  - ASH
+  - EHA
+  - ASCO
+  - SOHO
+  - ICML
+  - AACR
+  - iwCLL
+  - iwMM
+  - EBMT
+  - TANDEM
+  - abstract
+  - conference
+  - congress
+  - "#ASH"
+  - "#EHA"
+  - "#ASCO"
+  - "#SOHO"
+  - "#ICML"

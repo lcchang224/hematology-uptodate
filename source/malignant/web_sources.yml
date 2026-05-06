@@ -1,0 +1,57 @@
+# Web scraper source definitions — Hematological Malignancies
+# Used by: webscraper.py
+#
+# Two source types:
+#   type: rss        — fetch a direct RSS/Atom feed URL
+#   type: google_news — search Google News RSS; "query" field overrides the default search term
+#
+# Fields:
+#   name         display name in report
+#   type         rss | google_news
+#   url          (rss only) full RSS feed URL
+#   domain       (google_news only) site to search, e.g. onclive.com
+#   query        (google_news only) search term appended after "site:<domain>+"
+#   max_items    max articles to retrieve
+#   bc_filter    (rss only) true = apply keyword filter; false = feed is already topic-specific
+#   noise_filter (google_news only) regex of title patterns to exclude as noise
+
+sources:
+  - name: OncDaily Hematology
+    type: rss
+    url: "https://oncodaily.com/oncolibrary/hematology/feed/"
+    max_items: 25
+    bc_filter: false   # feed is already hematology-specific
+
+  - name: OncLive Hematology
+    type: google_news
+    domain: onclive.com
+    query: "hematology leukemia lymphoma myeloma"
+    max_items: 30
+    noise_filter: null
+
+  - name: ASH Hematology News
+    type: google_news
+    domain: hematology.org
+    query: "hematology"
+    max_items: 20
+    noise_filter: "membership|about|contact|award|meeting registration|guidelines|chapter"
+
+  - name: ESMO Hematology
+    type: google_news
+    domain: esmo.org
+    query: "hematology lymphoma leukemia myeloma"
+    max_items: 20
+    noise_filter: "terms|privacy|home|guidelines|about|welcome|calendar|industry|partners|registration|preceptorship|congress \\d{4}:"
+
+  - name: EHA News
+    type: google_news
+    domain: ehaweb.org
+    query: "hematology"
+    max_items: 15
+    noise_filter: "membership|login|congress registration|about|contact"
+
+# HTTP headers used for all scraper requests
+http_headers:
+  User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.9"

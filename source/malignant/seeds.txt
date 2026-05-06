@@ -1,0 +1,37 @@
+# Hematological malignancy KOL seed accounts
+# Format: one Twitter/X handle per line (no @)
+# Covers: AML, CLL, lymphoma, myeloma, MDS/MPN, transplant
+
+# Societies
+ASHhematology        # American Society of Hematology
+EHA_hematology       # European Hematology Association
+SOHO_hematology      # Society of Hematologic Oncology
+
+# AML / MDS
+NavneetSNingh        # AML/MDS, MD Anderson
+HarryPErba           # AML, Duke
+GailJRockman         # MDS, Cleveland Clinic
+
+# CLL
+JohnCByrd            # CLL pioneer, Ohio State
+NicolasRosenwald     # CLL genomics
+iwCLL                # iwCLL society
+
+# CML
+JorgeCortes3         # CML, Augusta University
+TimothyHughes_SA     # CML, South Australia
+
+# Lymphoma
+JasonWestin          # DLBCL, MD Anderson
+LorenzoCerchiett     # Lymphoma
+iwMM                 # International Myeloma Workshop
+
+# Multiple Myeloma
+SagarLonial          # Myeloma, Emory
+NikhilMunshi         # Myeloma, Dana-Farber
+IMFmyeloma           # International Myeloma Foundation
+
+# General / KOL
+OncoAlert            # Real-time oncology news aggregator
+OncLive              # OncLive news
+MedPageToday         # Medical news

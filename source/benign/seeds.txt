@@ -1,0 +1,28 @@
+# Non-malignant hematology KOL seed accounts
+# Format: one Twitter/X handle per line (no @)
+# Covers: ITP, TTP, PNH, aplastic anemia, hemophilia, thalassemia, thrombosis
+
+# Societies
+ASHhematology        # American Society of Hematology
+EHA_hematology       # European Hematology Association
+ISTHorg              # International Society on Thrombosis and Haemostasis
+NHF_Cure             # National Hemophilia Foundation
+
+# ITP / Thrombocytopenia
+DrJamesBussel        # ITP expert, Weill Cornell
+DrAdamFeldman        # ITP/autoimmune hematology
+
+# PNH / Complement
+DrRobert_Brodsky     # PNH, Johns Hopkins
+
+# Hemophilia
+WFHemophilia         # World Federation of Hemophilia
+FactorsFriends       # Hemophilia community
+
+# Thalassemia
+ThalassemiaIntl      # Thalassemia International Federation
+DrElisabetaVichinsky # Thalassemia, UCSF
+
+# Thrombosis / Coagulation
+ASHThrombosis        # ASH Thrombosis/Hemostasis section
+DrSamShulman         # Anticoagulation, McMaster

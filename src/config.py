@@ -1,21 +1,31 @@
-"""Load all configuration from source/ YAML files."""
+"""Load all configuration from source/<mode>/ YAML files.
 
+The active mode is controlled by the HEMA_MODE environment variable:
+  - "malignant" -> source/malignant/  (default)
+  - "benign"    -> source/benign/
+"""
+
+import os
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-SOURCE_DIR = Path(__file__).parent.parent / "source"
+
+def _source_dir() -> Path:
+    """Return the source directory for the current mode."""
+    mode = os.environ.get("HEMA_MODE", "malignant")
+    return Path(__file__).parent.parent / "source" / mode
 
 
 def _load(filename: str) -> Any:
-    return yaml.safe_load((SOURCE_DIR / filename).read_text())
+    return yaml.safe_load((_source_dir() / filename).read_text(encoding="utf-8"))
 
 
 @lru_cache(maxsize=None)
 def keywords() -> list[str]:
-    return _load("keywords.yml")["breast_cancer_keywords"]
+    return _load("keywords.yml")["keywords"]
 
 
 @lru_cache(maxsize=None)

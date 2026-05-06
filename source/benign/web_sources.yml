@@ -1,0 +1,48 @@
+# Web scraper source definitions — Non-malignant Hematology
+# Used by: webscraper.py
+#
+# Two source types:
+#   type: rss        — fetch a direct RSS/Atom feed URL
+#   type: google_news — search Google News RSS; "query" field sets the search term
+
+sources:
+  - name: ASH Hematology News
+    type: google_news
+    domain: hematology.org
+    query: "ITP aplastic anemia PNH thalassemia hemophilia"
+    max_items: 20
+    noise_filter: "membership|about|contact|award|meeting registration|guidelines|chapter"
+
+  - name: ISTH News
+    type: google_news
+    domain: isth.org
+    query: "hemophilia thrombosis coagulation bleeding disorder"
+    max_items: 15
+    noise_filter: "membership|login|registration|about"
+
+  - name: EHA News
+    type: google_news
+    domain: ehaweb.org
+    query: "aplastic anemia thalassemia hemophilia ITP PNH"
+    max_items: 15
+    noise_filter: "membership|login|congress registration|about|contact"
+
+  - name: OncLive Hematology
+    type: google_news
+    domain: onclive.com
+    query: "ITP PNH aplastic anemia thalassemia hemophilia thrombocytopenia"
+    max_items: 20
+    noise_filter: null
+
+  - name: EAHAD News
+    type: google_news
+    domain: eahad.org
+    query: "hemophilia bleeding disorder von Willebrand"
+    max_items: 10
+    noise_filter: "membership|registration|about"
+
+# HTTP headers used for all scraper requests
+http_headers:
+  User-Agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.9"

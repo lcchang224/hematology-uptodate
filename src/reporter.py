@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, date
 from pathlib import Path
 from collections import Counter, defaultdict
@@ -24,8 +25,9 @@ def build_report(days: int = 7) -> str:
     week = date.today().isocalendar()
     week_label = f"{week[0]}-W{week[1]:02d}"
 
+    mode = os.environ.get("HEMA_MODE", "malignant").replace("-", " ").title()
     if not tweets:
-        return f"# Breast Cancer Twitter Trend Report {week_label}\n\nNo tweets found in last {days} days.\n"
+        return f"# Hematology ({mode}) Twitter Trend Report {week_label}\n\nNo tweets found in last {days} days.\n"
 
     conf_kws = config.conference_keywords()
     group_tweets: dict[str, list[dict]] = defaultdict(list)
@@ -45,9 +47,9 @@ def build_report(days: int = 7) -> str:
     active_groups = sorted(group_tweets.items(), key=lambda x: len(x[1]), reverse=True)
 
     lines = []
-    lines.append(f"# Breast Cancer Twitter Trend Report — {week_label}")
+    lines.append(f"# Hematology ({mode}) Twitter Trend Report — {week_label}")
     lines.append(f"\n> Generated {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')} | "
-                 f"{len(tweets)} BC-relevant tweets | {len(accounts)} tracked accounts\n")
+                 f"{len(tweets)} hematology-relevant tweets | {len(accounts)} tracked accounts\n")
 
     lines.append("## Overview\n")
     lines.append("### Trending Topics by Volume\n")
@@ -59,8 +61,8 @@ def build_report(days: int = 7) -> str:
 
     lines.append("")
     lines.append("### Most Active KOLs This Week\n")
-    lines.append("| Handle | BC Tweets |")
-    lines.append("|--------|-----------|")
+    lines.append("| Handle | Tweets |")
+    lines.append("|--------|--------|")
     for auth, cnt in author_counts.most_common(10):
         lines.append(f"| @{auth} | {cnt} |")
 
@@ -104,7 +106,8 @@ def build_report(days: int = 7) -> str:
 
 def write_report(days: int = 7) -> Path:
     REPORTS_DIR.mkdir(exist_ok=True)
+    mode = os.environ.get("HEMA_MODE", "malignant")
     week = date.today().isocalendar()
-    fname = REPORTS_DIR / f"{week[0]}-W{week[1]:02d}.md"
-    fname.write_text(build_report(days))
+    fname = REPORTS_DIR / f"{mode}-{week[0]}-W{week[1]:02d}.md"
+    fname.write_text(build_report(days), encoding="utf-8")
     return fname

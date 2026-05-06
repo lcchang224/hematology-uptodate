@@ -1,0 +1,327 @@
+# Hematological malignancy relevance keywords
+# Used by: webscraper (article filtering & tagging), crossref_fetcher (pre-screening)
+# Add / remove terms here to tune what gets captured.
+
+keywords:
+  # ── AML ──────────────────────────────────────────────────────────────────────
+  - AML
+  - acute myeloid leukemia
+  - acute myelogenous leukemia
+  - FLT3
+  - IDH1
+  - IDH2
+  - NPM1
+  - TP53
+  - RUNX1
+  - midostaurin
+  - Rydapt
+  - gilteritinib
+  - Xospata
+  - quizartinib
+  - Vanflyta
+  - enasidenib
+  - Idhifa
+  - ivosidenib
+  - Tibsovo
+  - olutasidenib
+  - Rezlidhia
+  - CPX-351
+  - Vyxeos
+  - gemtuzumab ozogamicin
+  - Mylotarg
+  - venetoclax
+  - Venclexta
+  - azacitidine
+  - decitabine
+  - glasdegib
+  - Daurismo
+  - VIALE-A
+  - QUAZAR
+
+  # ── ALL ──────────────────────────────────────────────────────────────────────
+  - acute lymphoblastic leukemia
+  - acute lymphocytic leukemia
+  - Ph+ ALL
+  - Philadelphia chromosome
+  - BCR-ABL
+  - blinatumomab
+  - Blincyto
+  - inotuzumab ozogamicin
+  - Besylomab
+  - ponatinib
+  - Iclusig
+  - nelarabine
+  - clofarabine
+  - brexucabtagene autoleucel
+  - Tecartus
+  - ZUMA-3
+  - INO-VATE
+
+  # ── CML ──────────────────────────────────────────────────────────────────────
+  - CML
+  - chronic myeloid leukemia
+  - chronic myelogenous leukemia
+  - TKI
+  - tyrosine kinase inhibitor
+  - imatinib
+  - Gleevec
+  - Glivec
+  - nilotinib
+  - Tasigna
+  - dasatinib
+  - Sprycel
+  - bosutinib
+  - Bosulif
+  - asciminib
+  - Scemblix
+  - STAMP inhibitor
+  - treatment-free remission
+  - TFR
+
+  # ── CLL / SLL ─────────────────────────────────────────────────────────────────
+  - CLL
+  - SLL
+  - chronic lymphocytic leukemia
+  - small lymphocytic lymphoma
+  - BTK inhibitor
+  - ibrutinib
+  - Imbruvica
+  - acalabrutinib
+  - Calquence
+  - zanubrutinib
+  - Brukinsa
+  - pirtobrutinib
+  - Jaypirca
+  - obinutuzumab
+  - Gazyva
+  - rituximab
+  - idelalisib
+  - duvelisib
+  - IGHV
+  - del(17p)
+  - TP53 mutation
+  - iwCLL
+  - CLL14
+  - ALPINE
+  - ELEVATE
+  - SEQUOIA
+  - MURANO
+
+  # ── MDS ──────────────────────────────────────────────────────────────────────
+  - MDS
+  - myelodysplastic syndrome
+  - myelodysplastic neoplasm
+  - luspatercept
+  - Reblozyl
+  - lenalidomide
+  - Revlimid
+  - imetelstat
+  - Rytelo
+  - IPSS-R
+  - IPSS-M
+  - del(5q)
+  - ring sideroblast
+  - SF3B1
+  - DNMT3A
+  - TET2
+  - clonal hematopoiesis
+  - CHIP
+  - hypomethylating agent
+  - HMA
+  - COMMANDS
+  - MEDALIST
+
+  # ── MPN ──────────────────────────────────────────────────────────────────────
+  - MPN
+  - myeloproliferative neoplasm
+  - polycythemia vera
+  - essential thrombocythemia
+  - myelofibrosis
+  - primary myelofibrosis
+  - PMF
+  - JAK2
+  - JAK2 V617F
+  - CALR
+  - MPL
+  - ruxolitinib
+  - Jakafi
+  - fedratinib
+  - Inrebic
+  - pacritinib
+  - Vonjo
+  - momelotinib
+  - Ojjaara
+  - navitoclax
+  - pelabresib
+  - ropeginterferon alfa
+  - Besremi
+  - anagrelide
+  - hydroxyurea
+  - COMFORT
+  - SIMPLIFY
+  - MOMENTUM
+
+  # ── DLBCL & Aggressive B-cell Lymphoma ───────────────────────────────────────
+  - DLBCL
+  - diffuse large B-cell lymphoma
+  - R-CHOP
+  - pola-R-CHP
+  - polatuzumab vedotin
+  - Polivy
+  - axicabtagene ciloleucel
+  - axi-cel
+  - Yescarta
+  - lisocabtagene maraleucel
+  - liso-cel
+  - Breyanzi
+  - loncastuximab tesirine
+  - Zynlonta
+  - tafasitamab
+  - Monjuvi
+  - epcoritamab
+  - Epkinly
+  - glofitamab
+  - Columvi
+  - odronextamab
+  - mosunetuzumab
+  - Lunsumio
+  - CD19
+  - POLARIX
+  - L-MIND
+  - TRANSFORM
+  - ZUMA-7
+  - TRANSCEND
+
+  # ── Follicular Lymphoma ───────────────────────────────────────────────────────
+  - follicular lymphoma
+  - obinutuzumab
+  - PI3K delta
+  - copanlisib
+  - umbralisib
+  - parsaclisib
+  - GALLIUM
+  - AUGMENT
+  - RELEVANCE
+
+  # ── Mantle Cell Lymphoma ──────────────────────────────────────────────────────
+  - mantle cell lymphoma
+  - MCL
+  - SHINE
+  - TRIANGLE
+
+  # ── Hodgkin Lymphoma ──────────────────────────────────────────────────────────
+  - Hodgkin lymphoma
+  - classical Hodgkin
+  - cHL
+  - brentuximab vedotin
+  - Adcetris
+  - CD30
+  - ABVD
+  - BEACOPP
+  - KEYNOTE-204
+  - CheckMate-205
+
+  # ── NK/T-cell Lymphoma (Asia-relevant) ───────────────────────────────────────
+  - NK/T-cell lymphoma
+  - NKTCL
+  - extranodal NK
+  - ENKTL
+  - SMILE regimen
+  - asparaginase
+  - DDGP
+  - EBV-associated lymphoma
+
+  # ── T-cell Lymphoma ───────────────────────────────────────────────────────────
+  - T-cell lymphoma
+  - PTCL
+  - AITL
+  - ALCL
+  - anaplastic large cell
+  - romidepsin
+  - belinostat
+  - HDAC inhibitor
+
+  # ── Multiple Myeloma ──────────────────────────────────────────────────────────
+  - multiple myeloma
+  - myeloma
+  - plasma cell
+  - IMWG
+  - BCMA
+  - daratumumab
+  - Darzalex
+  - isatuximab
+  - Sarclisa
+  - carfilzomib
+  - Kyprolis
+  - bortezomib
+  - Velcade
+  - ixazomib
+  - Ninlaro
+  - lenalidomide
+  - pomalidomide
+  - Pomalyst
+  - teclistamab
+  - Tecvayli
+  - elranatamab
+  - Elrexfio
+  - talquetamab
+  - Talvey
+  - ciltacabtagene autoleucel
+  - cilta-cel
+  - Carvykti
+  - idecabtagene vicleucel
+  - ide-cel
+  - Abecma
+  - selinexor
+  - Xpovio
+  - belantamab mafodotin
+  - CASSIOPEIA
+  - MAIA
+  - GRIFFIN
+  - PERSEUS
+  - KarMMa
+  - CARTITUDE
+  - IKEMA
+  - CANDOR
+
+  # ── Waldenström / LPL ────────────────────────────────────────────────────────
+  - Waldenström macroglobulinemia
+  - Waldenstrom
+  - lymphoplasmacytic lymphoma
+  - LPL
+  - MYD88
+
+  # ── Marginal Zone / MALT ──────────────────────────────────────────────────────
+  - marginal zone lymphoma
+  - MZL
+  - MALT lymphoma
+  - splenic marginal zone
+
+  # ── Transplant & Cellular Therapy ────────────────────────────────────────────
+  - allogeneic transplant
+  - autologous transplant
+  - HSCT
+  - hematopoietic stem cell transplantation
+  - CAR-T
+  - CAR T-cell
+  - chimeric antigen receptor
+  - graft-versus-host disease
+  - GVHD
+  - belumosudil
+  - Rezurock
+  - ruxolitinib GVHD
+
+  # ── General ───────────────────────────────────────────────────────────────────
+  - hematologic malignancy
+  - hematological malignancy
+  - blood cancer
+  - leukemia
+  - lymphoma
+  - MRD
+  - minimal residual disease
+  - ASH
+  - EHA
+  - SOHO
+  - ICML
+  - iwCLL
+  - iwMM

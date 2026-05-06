@@ -1,0 +1,54 @@
+name: Weekly Hematology Report
+
+on:
+  schedule:
+    - cron: '0 0 * * 5'   # Friday 00:00 UTC = Friday 08:00 Taipei (UTC+8)
+  workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write           # needed to commit reports/ back to the repo
+
+jobs:
+  weekly-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Install Python dependencies
+        run: uv sync --frozen
+
+      - name: Collect data — malignant mode
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          uv run python main.py scrape   -m malignant
+          uv run python main.py journals -m malignant
+
+      - name: Collect data — benign mode
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          uv run python main.py scrape   -m benign
+          uv run python main.py journals -m benign
+
+      - name: Generate reports and send emails
+        env:
+          PYTHONUTF8: "1"
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: uv run python scripts/generate_and_email.py
+
+      - name: Commit reports to repository
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git diff --staged --quiet || git commit -m "report: weekly $(python -c 'from datetime import date; d=date.today(); print(f\"{d.year}-W{d.isocalendar()[1]:02d}\")')"
+          git push

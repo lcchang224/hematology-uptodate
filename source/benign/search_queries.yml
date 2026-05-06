@@ -1,0 +1,42 @@
+# Twitter search queries for non-malignant hematology content
+# Used by: fetcher.py
+# Note: sickle cell disease excluded (rare in Taiwan)
+
+search_queries:
+  # ITP
+  - "(ITP OR immune thrombocytopenia) (romiplostim OR eltrombopag OR avatrombopag OR fostamatinib)"
+  - "(ITP OR thrombocytopenia) (FDA OR approval OR trial OR splenectomy OR rituximab)"
+
+  # TTP / HUS / TMA
+  - "(TTP OR thrombotic thrombocytopenic purpura) (caplacizumab OR ADAMTS13 OR plasma exchange)"
+  - "(aHUS OR atypical HUS OR TMA) (eculizumab OR ravulizumab OR complement)"
+
+  # Aplastic Anemia
+  - "(aplastic anemia OR SAA) (ATG OR eltrombopag OR HSCT OR cyclosporin OR transplant)"
+
+  # PNH
+  - "(PNH OR paroxysmal nocturnal hemoglobinuria) (eculizumab OR ravulizumab OR iptacopan OR danicopan OR pegcetacoplan)"
+  - "(PNH OR complement) (factor B OR factor D OR C5 inhibitor)"
+
+  # Hemophilia
+  - "(hemophilia) (emicizumab OR Hemlibra OR fitusiran OR gene therapy OR extended half-life)"
+  - "(hemophilia A OR hemophilia B) (FDA OR approval OR trial OR prophylaxis OR inhibitor)"
+
+  # Thalassemia (high priority for Taiwan)
+  - "(thalassemia OR thalassaemia) (luspatercept OR gene therapy OR chelation OR deferasirox OR betibeglogene)"
+  - "(thalassemia OR beta-thalassemia) (transfusion OR iron overload OR TDT OR NTDT)"
+
+  # AIHA / Red cell disorders
+  - "(AIHA OR autoimmune hemolytic) (sutimlimab OR rituximab OR cold agglutinin)"
+  - "(G6PD OR pyruvate kinase OR hereditary spherocytosis OR mitapivat)"
+
+  # Iron deficiency
+  - "(iron deficiency anemia) (IV iron OR ferric carboxymaltose OR ferumoxytol OR intravenous iron)"
+
+  # Thrombosis / Coagulation
+  - "(antiphospholipid syndrome OR APS) (anticoagulation OR DOAC OR rivaroxaban OR apixaban)"
+  - "(VTE OR thrombophilia OR DVT OR pulmonary embolism) (DOAC OR guidelines OR prevention)"
+
+  # General
+  - "(#ASH OR #EHA OR #ISTH) (ITP OR TTP OR PNH OR hemophilia OR thalassemia OR aplastic)"
+  - "(hematology guidelines) (ASH OR EHA OR ISTH) lang:en"

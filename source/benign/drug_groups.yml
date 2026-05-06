@@ -1,0 +1,182 @@
+# Drug / target group definitions — Non-malignant Hematology
+# Used by: reporter.py (trend aggregation)
+# Format: group_name: [keyword, ...]  (case-insensitive matching)
+
+drug_groups:
+  TPO receptor agonists (ITP):
+    - TPO agonist
+    - thrombopoietin receptor agonist
+    - romiplostim
+    - Nplate
+    - eltrombopag
+    - Promacta
+    - Revolade
+    - avatrombopag
+    - Doptelet
+    - lusutrombopag
+    - Mulpleta
+    - fostamatinib
+    - Tavalisse
+    - ITP platelet
+
+  Complement inhibitors (PNH / aHUS):
+    - complement inhibitor
+    - eculizumab
+    - Soliris
+    - ravulizumab
+    - Ultomiris
+    - iptacopan
+    - Fabhalta
+    - danicopan
+    - Voydeya
+    - pegcetacoplan
+    - Empaveli
+    - Aspaveli
+    - sutimlimab
+    - Enjaymo
+    - factor B inhibitor
+    - factor D inhibitor
+    - C5 inhibitor
+    - complement pathway
+
+  Emicizumab & novel hemophilia agents:
+    - emicizumab
+    - Hemlibra
+    - fitusiran
+    - Alhemo
+    - concizumab
+    - marstacimab
+    - mim8
+    - HAVEN
+    - subcutaneous prophylaxis
+
+  Factor replacement therapy:
+    - factor VIII
+    - FVIII
+    - factor IX
+    - FIX
+    - extended half-life factor
+    - EHL factor
+    - recombinant factor
+    - plasma-derived factor
+    - von Willebrand factor
+    - VWF concentrate
+    - Vonvendi
+    - Veyvondi
+    - bypassing agent
+    - FEIBA
+    - NovoSeven
+    - rFVIIa
+
+  Gene therapy (hematology):
+    - gene therapy
+    - gene editing
+    - CRISPR
+    - betibeglogene
+    - Zynteglo
+    - fidanacogene elaparvovec
+    - Alhemo gene
+    - etranacogene dezaparvovec
+    - Hemgenix
+    - valoctocogene roxaparvovec
+    - Roctavian
+    - lovotibeglogene
+    - Lyfgenia
+
+  Iron chelation therapy:
+    - chelation therapy
+    - deferasirox
+    - Exjade
+    - Jadenu
+    - deferoxamine
+    - Desferal
+    - deferiprone
+    - Ferriprox
+    - iron overload
+    - serum ferritin
+
+  Intravenous iron:
+    - intravenous iron
+    - IV iron
+    - ferric carboxymaltose
+    - Injectafer
+    - Ferinject
+    - ferumoxytol
+    - Feraheme
+    - iron sucrose
+    - Venofer
+    - iron deficiency
+
+  Erythropoiesis-stimulating agents:
+    - luspatercept
+    - Reblozyl
+    - erythropoietin
+    - EPO
+    - darbepoetin
+    - Aranesp
+    - epoetin
+    - Epogen
+    - Procrit
+    - erythropoiesis-stimulating agent
+    - ESA
+
+  Immunosuppression (aplastic anemia / AIHA):
+    - anti-thymocyte globulin
+    - ATG
+    - horse ATG
+    - rabbit ATG
+    - cyclosporin
+    - cyclosporine
+    - tacrolimus
+    - rituximab autoimmune
+    - corticosteroid hematology
+    - IVIG
+    - intravenous immunoglobulin
+
+  Plasma exchange & caplacizumab (TTP):
+    - caplacizumab
+    - Cablivi
+    - plasma exchange
+    - therapeutic plasma exchange
+    - TPE
+    - ADAMTS13
+    - TTP treatment
+
+  Anticoagulation & thrombosis:
+    - DOAC
+    - direct oral anticoagulant
+    - rivaroxaban
+    - Xarelto
+    - apixaban
+    - Eliquis
+    - dabigatran
+    - Pradaxa
+    - edoxaban
+    - warfarin
+    - LMWH
+    - low molecular weight heparin
+    - anticoagulation
+    - antiphospholipid
+
+  Mitapivat (PK deficiency):
+    - mitapivat
+    - Pyrukynd
+    - pyruvate kinase
+    - ACTIVATE
+
+# Conference / event keywords
+conference_keywords:
+  - ASH
+  - EHA
+  - ISTH
+  - EAHAD
+  - GTH
+  - SOHA
+  - abstract
+  - conference
+  - congress
+  - guidelines
+  - "#ASH"
+  - "#EHA"
+  - "#ISTH"
+  - "#EAHAD"

@@ -1,0 +1,261 @@
+# Non-malignant hematology relevance keywords (Taiwan-relevant)
+# Used by: webscraper (article filtering & tagging), crossref_fetcher (pre-screening)
+# Note: sickle cell disease excluded (rare in Taiwan population)
+
+keywords:
+  # ── Immune Thrombocytopenia (ITP) ────────────────────────────────────────────
+  - ITP
+  - immune thrombocytopenia
+  - immune thrombocytopenic purpura
+  - primary ITP
+  - secondary ITP
+  - TPO agonist
+  - thrombopoietin receptor agonist
+  - romiplostim
+  - Nplate
+  - eltrombopag
+  - Promacta
+  - Revolade
+  - avatrombopag
+  - Doptelet
+  - lusutrombopag
+  - Mulpleta
+  - fostamatinib
+  - Tavalisse
+  - rituximab ITP
+  - dexamethasone ITP
+  - splenectomy ITP
+  - platelet count
+  - thrombocytopenia
+
+  # ── TTP / HUS ─────────────────────────────────────────────────────────────────
+  - TTP
+  - thrombotic thrombocytopenic purpura
+  - HUS
+  - hemolytic uremic syndrome
+  - aHUS
+  - atypical HUS
+  - ADAMTS13
+  - caplacizumab
+  - Cablivi
+  - plasma exchange
+  - therapeutic plasma exchange
+  - complement-mediated
+  - microangiopathy
+  - thrombotic microangiopathy
+  - TMA
+
+  # ── Aplastic Anemia ───────────────────────────────────────────────────────────
+  - aplastic anemia
+  - aplastic anaemia
+  - severe aplastic anemia
+  - SAA
+  - very severe aplastic anemia
+  - VSAA
+  - anti-thymocyte globulin
+  - ATG
+  - horse ATG
+  - rabbit ATG
+  - cyclosporin
+  - cyclosporine
+  - eltrombopag aplastic
+  - HSCT aplastic
+  - allogeneic transplant aplastic
+  - telomere
+  - telomeropathy
+  - dyskeratosis congenita
+  - Fanconi anemia
+
+  # ── PNH (Paroxysmal Nocturnal Hemoglobinuria) ─────────────────────────────────
+  - PNH
+  - paroxysmal nocturnal hemoglobinuria
+  - paroxysmal nocturnal haemoglobinuria
+  - complement inhibitor
+  - eculizumab
+  - Soliris
+  - ravulizumab
+  - Ultomiris
+  - iptacopan
+  - Fabhalta
+  - danicopan
+  - Voydeya
+  - pegcetacoplan
+  - Empaveli
+  - Aspaveli
+  - factor B inhibitor
+  - factor D inhibitor
+  - PEGASUS trial
+  - APPLY trial
+  - CD55
+  - CD59
+  - GPI anchor
+  - hemolysis
+
+  # ── Hemophilia ────────────────────────────────────────────────────────────────
+  - hemophilia
+  - haemophilia
+  - hemophilia A
+  - hemophilia B
+  - factor VIII
+  - factor IX
+  - FVIII
+  - FIX
+  - emicizumab
+  - Hemlibra
+  - fitusiran
+  - Alhemo
+  - concizumab
+  - marstacimab
+  - gene therapy hemophilia
+  - extended half-life
+  - EHL factor
+  - inhibitor hemophilia
+  - bypassing agent
+  - FEIBA
+  - NovoSeven
+  - recombinant factor
+  - prophylaxis hemophilia
+  - HAVEN trial
+  - bleeding disorder
+  - coagulopathy
+
+  # ── Von Willebrand Disease ────────────────────────────────────────────────────
+  - von Willebrand disease
+  - von Willebrand
+  - VWD
+  - VWF
+  - von Willebrand factor
+  - DDAVP
+  - desmopressin
+  - recombinant VWF
+  - Vonvendi
+  - Veyvondi
+  - type 1 VWD
+  - type 2 VWD
+  - type 3 VWD
+
+  # ── Thalassemia (highly relevant in Taiwan / Asia) ────────────────────────────
+  - thalassemia
+  - thalassaemia
+  - alpha-thalassemia
+  - alpha thalassemia
+  - beta-thalassemia
+  - beta thalassemia
+  - HbH disease
+  - Hb Bart
+  - thalassemia major
+  - thalassemia intermedia
+  - transfusion-dependent thalassemia
+  - TDT
+  - non-transfusion-dependent thalassemia
+  - NTDT
+  - luspatercept thalassemia
+  - Reblozyl thalassemia
+  - iron overload thalassemia
+  - chelation therapy
+  - deferasirox
+  - Exjade
+  - Jadenu
+  - deferoxamine
+  - Desferal
+  - deferiprone
+  - Ferriprox
+  - gene therapy thalassemia
+  - betibeglogene
+  - Zynteglo
+  - BELIEVE trial
+  - BEYOND trial
+  - hemoglobin E
+
+  # ── Autoimmune Hemolytic Anemia (AIHA) ────────────────────────────────────────
+  - autoimmune hemolytic anemia
+  - autoimmune haemolytic anaemia
+  - AIHA
+  - warm AIHA
+  - cold agglutinin disease
+  - cold agglutinin
+  - CAD
+  - sutimlimab
+  - Enjaymo
+  - DAT
+  - direct antiglobulin test
+  - Coombs test
+  - hemolysis
+  - reticulocytosis
+  - rituximab AIHA
+
+  # ── Hereditary Spherocytosis & RBC Disorders ─────────────────────────────────
+  - hereditary spherocytosis
+  - HS
+  - hereditary elliptocytosis
+  - G6PD deficiency
+  - G6PD
+  - glucose-6-phosphate dehydrogenase
+  - pyruvate kinase deficiency
+  - PK deficiency
+  - mitapivat
+  - Pyrukynd
+  - ACTIVATE trial
+
+  # ── Iron Deficiency & Nutritional Anemias ─────────────────────────────────────
+  - iron deficiency anemia
+  - iron deficiency anaemia
+  - IDA
+  - ferric carboxymaltose
+  - Injectafer
+  - Ferinject
+  - ferumoxytol
+  - Feraheme
+  - iron sucrose
+  - Venofer
+  - low molecular weight iron dextran
+  - intravenous iron
+  - IV iron
+  - transferrin saturation
+  - serum ferritin
+  - vitamin B12 deficiency
+  - cobalamin deficiency
+  - folate deficiency
+  - megaloblastic anemia
+  - pernicious anemia
+
+  # ── Coagulation & Thrombosis ──────────────────────────────────────────────────
+  - antiphospholipid syndrome
+  - APS
+  - antiphospholipid antibody
+  - thrombophilia
+  - inherited thrombophilia
+  - factor V Leiden
+  - prothrombin mutation
+  - protein C deficiency
+  - protein S deficiency
+  - antithrombin deficiency
+  - venous thromboembolism
+  - VTE
+  - deep vein thrombosis
+  - DVT
+  - pulmonary embolism
+  - PE
+  - anticoagulation
+  - DOAC
+  - direct oral anticoagulant
+  - warfarin
+  - heparin
+  - low molecular weight heparin
+  - LMWH
+  - rivaroxaban
+  - apixaban
+  - dabigatran
+  - DIC
+  - disseminated intravascular coagulation
+
+  # ── General ───────────────────────────────────────────────────────────────────
+  - non-malignant hematology
+  - benign hematology
+  - rare blood disorder
+  - hematology guidelines
+  - ASH guidelines
+  - EHA guidelines
+  - ISTH
+  - International Society on Thrombosis and Haemostasis
+  - EAHAD

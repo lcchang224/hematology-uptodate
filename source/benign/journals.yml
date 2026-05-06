@@ -1,0 +1,61 @@
+# CrossRef journal sources — Non-malignant Hematology
+# Used by: src/crossref_fetcher.py
+
+crossref_email: "lcchang224@gmail.com"
+
+journals:
+  - name: Blood
+    full_name: "Blood"
+    issn: "0006-4971"
+    days_back: 14
+    max_items: 35
+    bc_filter: true
+
+  - name: BJH
+    full_name: "British Journal of Haematology"
+    issn: "1365-2141"
+    days_back: 14
+    max_items: 25
+    bc_filter: true
+
+  - name: Haematologica
+    full_name: "Haematologica"
+    issn: "0390-6078"
+    days_back: 14
+    max_items: 25
+    bc_filter: true
+
+  - name: Blood Advances
+    full_name: "Blood Advances"
+    issn: "2473-9529"
+    days_back: 14
+    max_items: 25
+    bc_filter: true
+
+  - name: American Journal of Hematology
+    full_name: "American Journal of Hematology"
+    issn: "1096-8652"
+    days_back: 14
+    max_items: 25
+    bc_filter: true
+
+  - name: JTH
+    full_name: "Journal of Thrombosis and Haemostasis"
+    issn: "1538-7933"
+    days_back: 14
+    max_items: 20
+    bc_filter: true
+
+  - name: RPTH
+    full_name: "Research and Practice in Thrombosis and Haemostasis"
+    issn: "2475-0379"
+    days_back: 14
+    max_items: 15
+    bc_filter: true
+
+  - name: NEJM
+    full_name: "New England Journal of Medicine"
+    issn: "0028-4793"
+    days_back: 14
+    max_items: 10
+    bc_filter: true
