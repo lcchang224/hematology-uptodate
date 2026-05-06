@@ -55,8 +55,17 @@ def week_label() -> str:
 def load_cache(mode: str) -> tuple[list, list]:
     j = DATA_DIR / f"journals_cache_{mode}.json"
     w = DATA_DIR / f"webscrape_cache_{mode}.json"
-    journals = json.loads(j.read_text(encoding="utf-8")) if j.exists() else []
-    web = json.loads(w.read_text(encoding="utf-8")) if w.exists() else []
+
+    def flatten(data):
+        if isinstance(data, dict):
+            result = []
+            for v in data.values():
+                result.extend(v if isinstance(v, list) else [v])
+            return result
+        return data if isinstance(data, list) else []
+
+    journals = flatten(json.loads(j.read_text(encoding="utf-8"))) if j.exists() else []
+    web = flatten(json.loads(w.read_text(encoding="utf-8"))) if w.exists() else []
     return journals, web
 
 
