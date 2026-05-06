@@ -152,7 +152,8 @@ ISO week: `python3 -c "from datetime import date; d=date.today(); print(f'{d.yea
 ## Writing Style
 
 - Language: **English** — medical terms stay as-is (HR, PFS, ADAMTS13, etc.)
-- Every clinical claim must cite trial name + author + journal + DOI
+- Every clinical claim must be cited. Use numbered footnote markers **only** — never write full citations inline. Place `[^N]` immediately after the claim. Collect all references in a single `## References` section at the very end of the report:
+  `[^1]: Author A et al. *Journal* Year. [DOI 10.xxx/yyy](https://doi.org/10.xxx/yyy)`
 - Tables: use Markdown tables for comparative data (treatment vs control arm)
 - Numbers: always include HR, CI, p-value when available
 - Avoid vague superlatives — every "significant" needs a number

@@ -42,8 +42,13 @@ STYLES = {
 SYSTEM_PROMPT = (
     "You are a senior hematologist writing structured weekly clinical update reports "
     "for fellow hematologists at NCKUH, Taiwan. Reports are precise and evidence-based, "
-    "written in medical English. Cite trial names, authors, journal, DOI. Include concrete "
-    "numbers (HR, CI, p-value). Write clinical sections in paragraph prose, not bullet lists."
+    "written in medical English. Include concrete numbers (HR, CI, p-value). "
+    "Write clinical sections in paragraph prose, not bullet lists. "
+    "CITATION FORMAT: never write full citations inline. Place a numbered footnote marker "
+    "[^N] immediately after the claim (e.g., 'asciminib showed 95.2% MMR at Week 96[^1]'). "
+    "Collect every reference in a single '## References' section at the very end of the "
+    "report, one entry per line:\n"
+    "[^1]: Author A et al. *Journal* Year. [DOI 10.xxx/yyy](https://doi.org/10.xxx/yyy)"
 )
 
 
@@ -118,7 +123,7 @@ def call_claude(mode: str, journals: list, web: list) -> str:
 def to_html(md_text: str, mode: str) -> str:
     s = STYLES[mode]
     p, a, bg, label = s["primary"], s["accent"], s["light_bg"], s["label"]
-    body = md_lib.markdown(md_text, extensions=["tables", "fenced_code"])
+    body = md_lib.markdown(md_text, extensions=["tables", "fenced_code", "footnotes"])
     wl = week_label()
     today = date.today().isoformat()
 
@@ -151,6 +156,13 @@ pre{{background:#f5f5f5;padding:14px;border-radius:4px;overflow-x:auto}}
 pre code{{background:none;padding:0}}
 em{{color:#616161}}
 strong{{color:#212121}}
+sup{{line-height:0}}
+sup a{{color:{a};text-decoration:none;font-weight:600;font-size:11px}}
+sup a:hover{{text-decoration:underline}}
+.footnote{{border-top:2px solid #e0e0e0;margin-top:36px;padding-top:16px;font-size:13px;color:#616161;line-height:1.6}}
+.footnote ol{{padding-left:20px;margin:8px 0 0}}
+.footnote li{{margin-bottom:6px}}
+.footnote a{{color:{a}}}
 .ftr{{background:{bg};padding:14px 32px;font-size:12px;color:#757575;border-top:1px solid #e0e0e0;line-height:1.6}}
 @media(max-width:600px){{
   .hdr,.body,.ftr{{padding:18px 16px}}
