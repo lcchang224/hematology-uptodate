@@ -9,6 +9,7 @@ from typing import Optional
 import httpx
 
 from . import config
+from . import abstract_backfill
 
 JATS_TAG = re.compile(r"<[^>]+>")
 
@@ -88,10 +89,11 @@ async def _fetch_journal(
     journal: dict,
     email: str,
 ) -> list[JournalArticle]:
+    """Fetch raw articles for one journal. Pre-screen is deferred until after
+    abstract backfill so articles with empty CrossRef abstracts get a fair shot."""
     issn = journal["issn"]
     days_back = journal.get("days_back", 14)
     max_items = journal.get("max_items", 30)
-    kw_filter = journal.get("bc_filter", True)   # field kept as bc_filter for YAML compat
     from_date = (date.today() - timedelta(days=days_back)).isoformat()
 
     params = {
@@ -119,9 +121,6 @@ async def _fetch_journal(
             continue
         abstract = _clean_abstract(item.get("abstract", ""))
 
-        if kw_filter and not _passes_prescreen(title + " " + abstract):
-            continue
-
         authors_raw = item.get("author", [])
         authors = [
             f"{a.get('family', '')} {a.get('given', '')[:1]}".strip()
@@ -140,20 +139,46 @@ async def _fetch_journal(
             authors=authors,
             published=_pub_date(item),
             abstract=abstract,
-            abstract_digest=_digest_abstract(abstract),
-            tags=_extract_tags(title + " " + abstract),
+            abstract_digest="",   # computed after backfill
+            tags=[],              # computed after backfill
             url=f"https://doi.org/{doi}" if doi else item.get("URL", ""),
         ))
 
     return articles
 
 
+def _finalize(journal: dict, articles: list[JournalArticle]) -> list[JournalArticle]:
+    """Apply per-journal keyword pre-screen and recompute digest+tags using the
+    (now possibly backfilled) abstract."""
+    kw_filter = journal.get("bc_filter", True)   # field kept as bc_filter for YAML compat
+    kept: list[JournalArticle] = []
+    for a in articles:
+        text = a.title + " " + (a.abstract or "")
+        if kw_filter and not _passes_prescreen(text):
+            continue
+        a.abstract_digest = _digest_abstract(a.abstract)
+        a.tags = _extract_tags(text)
+        kept.append(a)
+    return kept
+
+
 async def fetch_all() -> dict[str, list[JournalArticle]]:
     journals = config.journals()
     email = config.crossref_email()
     async with httpx.AsyncClient() as client:
-        results = await asyncio.gather(*[_fetch_journal(client, j, email) for j in journals])
-    return {j["name"]: arts for j, arts in zip(journals, results)}
+        raw = await asyncio.gather(*[_fetch_journal(client, j, email) for j in journals])
+
+    # ── Backfill abstracts across all journals (PubMed primary, Elsevier fallback) ──
+    flat = [a for arts in raw for a in arts]
+    missing = sum(1 for a in flat if not a.abstract and a.doi)
+    if missing:
+        print(f"  [backfill] {missing} articles missing abstracts; querying PubMed…")
+        filled_pm, filled_el = abstract_backfill.backfill(flat)
+        print(f"  [backfill] PubMed filled {filled_pm}, Elsevier filled {filled_el}, "
+              f"{missing - filled_pm - filled_el} still empty")
+
+    # ── Per-journal pre-screen + digest/tags now that abstracts are populated ──
+    return {j["name"]: _finalize(j, arts) for j, arts in zip(journals, raw)}
 
 
 def format_articles_md(results: dict[str, list[JournalArticle]]) -> str:

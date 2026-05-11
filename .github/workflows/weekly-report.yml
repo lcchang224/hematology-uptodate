@@ -26,6 +26,7 @@ jobs:
       - name: Collect data — malignant mode
         env:
           PYTHONUTF8: "1"
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
         run: |
           uv run python main.py scrape   -m malignant
           uv run python main.py journals -m malignant
@@ -33,6 +34,7 @@ jobs:
       - name: Collect data — benign mode
         env:
           PYTHONUTF8: "1"
+          ELSEVIER_API_KEY: ${{ secrets.ELSEVIER_API_KEY }}
         run: |
           uv run python main.py scrape   -m benign
           uv run python main.py journals -m benign
