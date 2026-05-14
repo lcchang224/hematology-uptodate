@@ -93,18 +93,59 @@ def render_report(md_text: str, mode: str, wl: str) -> str:
 
 
 def render_index(malignant, benign, other) -> str:
-    def rows(items, mode):
-        if not items: return "<tr><td><em>None yet</em></td></tr>"
-        s = STYLES.get(mode, STYLES["malignant"])
-        return "\n".join(
-            f'<tr><td><a href="{r.stem}.html" style="color:{s["accent"]}">{r.stem}</a></td></tr>'
-            for r in items
-        )
-    css = REPORT_CSS.format(p=INDEX_PRIMARY, a=INDEX_ACCENT, bg=INDEX_BG)
-    today = date.today().isoformat()
+    def by_year(reports):
+        groups = {}
+        for r in reports:
+            m = re.search(r"(\d{4})-W(\d{2})", r.stem)
+            if not m: continue
+            groups.setdefault(m.group(1), []).append((m.group(2), r))
+        return [(y, sorted(weeks, reverse=True)) for y, weeks in sorted(groups.items(), reverse=True)]
+
+    def render_column(reports, title, primary, accent):
+        years = by_year(reports)
+        if not years:
+            return f'<div class="col"><h2 style="color:{primary};border-bottom-color:{accent}">{title}</h2><p><em>None yet</em></p></div>'
+        current_year = years[0][0]
+        blocks = []
+        for year, weeks in years:
+            is_open = " open" if year == current_year else ""
+            items = "\n".join(
+                f'<li><a href="{r.stem}.html" style="color:{accent}">W{week}</a></li>'
+                for week, r in weeks
+            )
+            blocks.append(
+                f'<details{is_open}><summary style="color:{primary}">{year} ({len(weeks)})</summary>'
+                f'<ul class="weeks">{items}</ul></details>'
+            )
+        return (f'<div class="col"><h2 style="color:{primary};border-bottom-color:{accent}">{title}</h2>'
+                f'{"".join(blocks)}</div>')
+
+    mal_col = render_column(malignant, "Malignant",
+                            STYLES["malignant"]["primary"], STYLES["malignant"]["accent"])
+    ben_col = render_column(benign, "Benign",
+                            STYLES["benign"]["primary"], STYLES["benign"]["accent"])
+
+    extra_css = """
+.cols{display:flex;gap:32px;flex-wrap:wrap}
+.col{flex:1;min-width:280px}
+.col h2{border-bottom:2px solid;padding-bottom:5px;margin-top:0}
+details{margin:8px 0}
+summary{cursor:pointer;font-weight:600;padding:6px 0;font-size:15px;user-select:none}
+summary:hover{opacity:.75}
+.weeks{list-style:none;padding:0;margin:6px 0 12px 16px}
+.weeks li{margin:4px 0;font-size:14px}
+.other{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0e0}
+@media(max-width:680px){.cols{flex-direction:column;gap:0}}"""
+
+    css = REPORT_CSS.format(p=INDEX_PRIMARY, a=INDEX_ACCENT, bg=INDEX_BG) + extra_css
+
     other_section = ""
     if other:
-        other_section = f'<h2>Other</h2><table>{rows(sorted(other, reverse=True), "malignant")}</table>'
+        items = "\n".join(f'<li><a href="{r.stem}.html">{r.stem}</a></li>'
+                          for r in sorted(other, reverse=True))
+        other_section = f'<div class="other"><h3>Other</h3><ul class="weeks">{items}</ul></div>'
+
+    today = date.today().isoformat()
     return f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -116,8 +157,7 @@ def render_index(malignant, benign, other) -> str:
 <p>NCKUH Hematology Division &nbsp;&middot;&nbsp; Updated {today}</p>
 </div>
 <div class="body">
-<h2>Hematological Malignancies</h2><table>{rows(malignant, "malignant")}</table>
-<h2>Non-malignant Hematology</h2><table>{rows(benign, "benign")}</table>
+<div class="cols">{mal_col}{ben_col}</div>
 {other_section}
 </div>
 <div class="ftr">Auto-generated weekly. Sources: CrossRef, ASH, EHA, ISTH, OncLive.</div>
