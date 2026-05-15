@@ -1,0 +1,15 @@
+{
+  "generated": "2026-05-15T06:13:39+00:00",
+  "weeks": [
+    {
+      "week": "2026-W20",
+      "benign_url": "https://report.lcchema.cc/benign-2026-W20.html",
+      "malignant_url": "https://report.lcchema.cc/malignant-2026-W20.html"
+    },
+    {
+      "week": "2026-W19",
+      "benign_url": "https://report.lcchema.cc/benign-2026-W19.html",
+      "malignant_url": "https://report.lcchema.cc/malignant-2026-W19.html"
+    }
+  ]
+}
