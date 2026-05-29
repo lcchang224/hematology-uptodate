@@ -120,26 +120,40 @@ def call_claude(mode: str, journals: list, web: list) -> str:
     if not missing and has_header:
         return report
 
-    # One follow-up turn to repair the References section.
-    print(f"  ! Footnote check failed (missing={len(missing)}, has_header={has_header}) — requesting repair.")
+    # One follow-up turn to emit ONLY the References block; we append it to
+    # the original report. Asking for the full report risks truncation at
+    # max_tokens before the refs section is reached (which is what likely
+    # caused the original drop).
+    needed = sorted(missing, key=int) if missing else []
+    print(f"  ! Footnote check failed (missing={len(missing)}, has_header={has_header}) — requesting refs-only repair.")
     messages.append({"role": "assistant", "content": report})
     messages.append({"role": "user", "content": (
-        "The report is missing a complete `## References` section. "
-        f"Every `[^N]` marker in the prose must have a matching `[^N]: …` definition line. "
-        f"Missing definitions for markers: {sorted(missing, key=int) if missing else 'none'}. "
-        f"References header present: {has_header}. "
-        "Output the FULL corrected report from the title down, including a `## References` section "
-        "at the very end with one `[^N]: Author A et al. *Journal* Year. [DOI 10.xxx/yyy](https://doi.org/10.xxx/yyy)` "
-        "line per marker. Use the DOIs from the <journal_articles> block I gave you earlier."
+        "Your previous response is missing the `## References` section. "
+        "Output ONLY the references block — nothing else, no prose, no preamble, "
+        "no closing remarks. Start the response with the literal line `## References` "
+        "followed by one line per footnote in this exact format:\n"
+        "[^N]: Author A et al. *Journal* Year. [DOI 10.xxx/yyy](https://doi.org/10.xxx/yyy)\n\n"
+        f"You must produce one `[^N]: ...` line for every one of these markers used in the prose: "
+        f"{needed}. Use the DOIs from the <journal_articles> block I gave you earlier. "
+        "If you can't find a DOI for a marker, still emit the line with the best citation you have "
+        "(journal + year + title) — do not skip any marker."
     )})
 
     msg2 = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=8192,
+        max_tokens=4096,
         system=SYSTEM_PROMPT,
         messages=messages,
     )
-    repaired = msg2.content[0].text
+    refs_block = msg2.content[0].text.strip()
+
+    # Strip any accidental preamble before the header.
+    idx = refs_block.find("## References")
+    if idx > 0:
+        refs_block = refs_block[idx:]
+
+    # Append to the original report (separate with blank line).
+    repaired = report.rstrip() + "\n\n" + refs_block + "\n"
 
     missing2, _, has_header2 = footnote_gap(repaired)
     if missing2 or not has_header2:
@@ -147,7 +161,7 @@ def call_claude(mode: str, journals: list, web: list) -> str:
             f"Footnote repair failed for {mode}: still missing {sorted(missing2, key=int)}, "
             f"has_header={has_header2}. Aborting so the workflow fails loud."
         )
-    print(f"  ✓ Footnote repair succeeded.")
+    print(f"  ✓ Footnote repair succeeded ({len(needed)} refs appended).")
     return repaired
 
 
