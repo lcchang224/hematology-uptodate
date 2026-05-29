@@ -185,8 +185,16 @@ Always add a brief Taiwan-specific note for each report:
 
 1. Check word count: aim for 2000–6000 words per report
 2. Verify all Markdown tables have header separators (`|---|---|`)
-3. Commit: `git add reports/<mode>-YYYY-WNN.md && git commit -m "report: <mode> YYYY-WNN"`
-4. Push → GitHub Action auto-publishes to Wiki
+3. **Verify citations resolve.** Every `[^N]` in the prose must have a matching `[^N]: …` line under a `## References` section at the end. Quick check — these two counts must be equal and `## References` must exist:
+   ```bash
+   F=reports/<mode>-YYYY-WNN.md
+   echo "markers: $(grep -oE '\[\^[0-9]+\]' $F | sort -u | wc -l)"
+   echo "defs:    $(grep -cE '^\[\^[0-9]+\]:' $F)"
+   grep -c '^## References' $F   # must be 1
+   ```
+   `build_site.py` will refuse to build any report with unresolved markers — do not skip this.
+4. Commit: `git add reports/<mode>-YYYY-WNN.md && git commit -m "report: <mode> YYYY-WNN"`
+5. Push → GitHub Action auto-publishes to Wiki
 
 ---
 

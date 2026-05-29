@@ -164,12 +164,34 @@ summary:hover{opacity:.75}
 </div></body></html>"""
 
 
+UNRESOLVED_FN = re.compile(r"\[\^[^\]]+\]")
+CURRENT_WL = f"{date.today().isocalendar()[0]}-W{date.today().isocalendar()[1]:02d}"
+
 reports = sorted(Path("reports").glob("*.md"))
+current_week_problems = []
+legacy_warnings = []
 for r in reports:
     mode = detect_mode(r.stem)
     wl = week_from_stem(r.stem)
-    (OUT / f"{r.stem}.html").write_text(
-        render_report(r.read_text(encoding="utf-8"), mode, wl), encoding="utf-8"
+    html = render_report(r.read_text(encoding="utf-8"), mode, wl)
+    leftover = UNRESOLVED_FN.findall(html)
+    if leftover:
+        uniq = sorted(set(leftover))
+        msg = f"{r.name}: {len(leftover)} unresolved footnote marker(s): {', '.join(uniq[:8])}{' ...' if len(uniq) > 8 else ''}"
+        if wl == CURRENT_WL:
+            current_week_problems.append(msg)
+        else:
+            legacy_warnings.append(msg)
+    (OUT / f"{r.stem}.html").write_text(html, encoding="utf-8")
+
+for w in legacy_warnings:
+    print(f"WARN (legacy): {w}")
+
+if current_week_problems:
+    raise SystemExit(
+        f"Build failed — current-week report ({CURRENT_WL}) has unresolved [^N] markers.\n"
+        "Add a `## References` section with `[^N]: Author. *Journal* Year. [DOI](...)` lines.\n\n"
+        + "\n".join(current_week_problems)
     )
 
 malignant = sorted([r for r in reports if r.stem.startswith("malignant-")], reverse=True)
