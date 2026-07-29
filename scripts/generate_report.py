@@ -34,6 +34,27 @@ CLAUDE_MD = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
 
 MODES = ("malignant", "benign")
 
+# Model config. Sonnet 5 for the weekly report: this is the hard job (a ~7,000
+# token report whose 30-40 footnote markers must all resolve). The daily digest
+# stays on Haiku 4.5, which handles short summaries fine.
+#
+# NOTE: thinking is explicitly disabled. On Sonnet 5 adaptive thinking is ON by
+# default when the field is omitted (unlike Sonnet 4.6), and max_tokens caps
+# thinking + response text *together* — so leaving it implicit would eat the
+# budget the report needs and truncate mid-references.
+MODEL      = "claude-sonnet-5"
+MAX_TOKENS = 16000   # observed reports run 5.2k-7.6k tokens; 8192 left almost no headroom
+THINKING   = {"type": "disabled"}
+
+
+def response_text(msg) -> str:
+    """Concatenate text blocks, skipping thinking/other block types.
+
+    msg.content[0] is not reliably the text block once thinking is enabled,
+    so never index into content directly.
+    """
+    return "".join(b.text for b in msg.content if b.type == "text").strip()
+
 SYSTEM_PROMPT = (
     "You are a senior hematologist writing structured weekly clinical update reports "
     "for fellow hematologists at NCKUH, Taiwan. Reports are precise and evidence-based, "
@@ -109,12 +130,16 @@ def call_claude(mode: str, journals: list, web: list) -> str:
     messages = [{"role": "user", "content": user_msg}]
 
     msg = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=8192,
+        model=MODEL,
+        max_tokens=MAX_TOKENS,
         system=SYSTEM_PROMPT,
+        thinking=THINKING,
         messages=messages,
     )
-    report = msg.content[0].text
+    report = response_text(msg)
+
+    if msg.stop_reason == "max_tokens":
+        print(f"  ! {mode}: hit max_tokens ({MAX_TOKENS}); report is truncated.")
 
     missing, _, has_header = footnote_gap(report)
     if not missing and has_header:
@@ -140,12 +165,13 @@ def call_claude(mode: str, journals: list, web: list) -> str:
     )})
 
     msg2 = client.messages.create(
-        model="claude-haiku-4-5-20251001",
+        model=MODEL,
         max_tokens=4096,
         system=SYSTEM_PROMPT,
+        thinking=THINKING,
         messages=messages,
     )
-    refs_block = msg2.content[0].text.strip()
+    refs_block = response_text(msg2)
 
     # Strip any accidental preamble before the header.
     idx = refs_block.find("## References")
