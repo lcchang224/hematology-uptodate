@@ -1,12 +1,17 @@
-# CLAUDE.md — Hematology Weekly Report (Dual-Mode)
+# Hematology Weekly Report (Dual-Mode)
 
 ## Project Purpose
 
 Auto-generate weekly Markdown reports on hematology trends from:
 - CrossRef API (via `python main.py journals -m <mode>`)
 - Web news (OncDaily RSS, OncLive/ASH/EHA/ESMO via Google News RSS)
-- PubMed MCP (`mcp__claude_ai_PubMed__search_articles`) — if available
-- ClinicalTrials.gov MCP — if available
+- PubMed (`pubmed-pp-cli`) — interactive runs only
+- ClinicalTrials.gov (`clinicaltrials-pp-cli`) — interactive runs only
+
+The automated weekly generator has **no live tool access**. It receives only the
+CrossRef and web-scrape caches, inline in the prompt. Never cite a PubMed record,
+an NCT number, or any trial detail that is not present in the data blocks given
+to you in that prompt.
 
 Two independent report modes:
 | Mode | Command flag | Report prefix | Disease scope |
