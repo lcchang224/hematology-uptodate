@@ -138,8 +138,30 @@ def call_claude(mode: str, journals: list, web: list) -> str:
     )
     report = response_text(msg)
 
+    # Fail loud on every non-publishable outcome BEFORE the repair turn. The
+    # repair appends a References block covering only the markers present in
+    # whatever prose survived, so a truncated report passes footnote_gap() and
+    # would otherwise be committed, pushed, and published to report.lcchema.cc.
+    if msg.stop_reason == "refusal":
+        details = getattr(msg, "stop_details", None)
+        raise RuntimeError(
+            f"{mode}: the model declined the request "
+            f"(category={getattr(details, 'category', None)!r}). Aborting."
+        )
+
     if msg.stop_reason == "max_tokens":
-        print(f"  ! {mode}: hit max_tokens ({MAX_TOKENS}); report is truncated.")
+        raise RuntimeError(
+            f"{mode}: hit max_tokens ({MAX_TOKENS}); the report is cut off mid-sentence. "
+            "Aborting so the workflow fails loud rather than publishing a truncated report. "
+            "Raise MAX_TOKENS if reports have legitimately grown."
+        )
+
+    if not report:
+        raise RuntimeError(
+            f"{mode}: model returned no text blocks (stop_reason={msg.stop_reason!r}). "
+            "Aborting before the repair turn, which would send an empty assistant "
+            "message and fail with an opaque BadRequestError."
+        )
 
     missing, _, has_header = footnote_gap(report)
     if not missing and has_header:

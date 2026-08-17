@@ -53,15 +53,24 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add reports/ manifests/
-          git diff --staged --quiet || git commit -m "report: weekly $(python -c 'from datetime import date; d=date.today(); print(f\"{d.year}-W{d.isocalendar()[1]:02d}\")')"
+          # Double quotes outside, single quotes inside Python — no escaping needed.
+          # The previous form nested \" inside a single-quoted string, so Python
+          # received literal backslashes, died with SyntaxError, and every commit
+          # message lost its week label.
+          WEEK=$(python -c "from datetime import date; d=date.today(); print(f'{d.year}-W{d.isocalendar()[1]:02d}')")
+          git diff --staged --quiet || git commit -m "report: weekly $WEEK"
           git push
 
-      - name: Notify lcchema-hub
-        env:
-          HUB_TOKEN: ${{ secrets.HUB_DISPATCH_TOKEN }}
-        run: |
-          curl -sS -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $HUB_TOKEN" \
-            "https://api.github.com/repos/${{ github.repository_owner }}/lcchema-hub/dispatches" \
-            -d '{"event_type":"report-published"}'
+# NOTE: there was a "Notify lcchema-hub" step here that fired a repository_dispatch
+# (report-published) at lcchema-hub. Removed 2026-08-17 as dead code.
+#
+# lcchema-hub was simplified to a client-side fetch on 2026-05-20 (hub commit
+# 6e487e8, "Simplify hub to client-side fetch — no build pipeline"). Its
+# public/index.html now reads
+#   https://raw.githubusercontent.com/lcchang224/hematology-uptodate/main/manifests/latest.json
+# directly in the browser, so pushing manifests/ to main above is all the hub needs.
+# Nothing listens for report-published — lcchema-hub has no workflows at all.
+#
+# The step had also never worked: HUB_DISPATCH_TOKEN was never set as a secret, so
+# every run got 401 Bad credentials, and `curl -sS` without -f exits 0 on an HTTP
+# error, which kept the job green and hid it.
