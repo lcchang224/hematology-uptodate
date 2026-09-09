@@ -19,6 +19,27 @@ import anthropic
 MARKER_RE = re.compile(r"\[\^([0-9]+)\](?!:)")  # [^N] not followed by colon
 DEF_RE    = re.compile(r"^\[\^([0-9]+)\]:", re.MULTILINE)
 REFS_HEADER_RE = re.compile(r"^##\s+References\s*$", re.MULTILINE)
+# "[^7 - carried over]", "[^4 — note: prior week]": the model annotates a marker
+# when it re-cites last week's source. Markdown does not render these, MARKER_RE
+# does not see them, and build_site.py (which does) then refuses the whole site
+# build on Cloudflare, silently — 2026-W36 was invisible for five days this way.
+ANNOTATED_MARKER_RE = re.compile(r"\[\^([0-9]+)[\s,;:(-][^\]]*\](?!:)")
+ANY_MARKER_RE       = re.compile(r"\[\^[^\]]*\]")
+CLEAN_MARKER_RE     = re.compile(r"\[\^[0-9]+\]")
+
+
+def normalise_markers(md_text: str) -> tuple[str, list[str]]:
+    """Rewrite '[^N <annotation>]' to '[^N]'. Returns (text, list of rewritten originals)."""
+    seen: list[str] = []
+    def _sub(m: re.Match) -> str:
+        seen.append(m.group(0))
+        return f"[^{m.group(1)}]"
+    return ANNOTATED_MARKER_RE.sub(_sub, md_text), seen
+
+
+def stray_markers(md_text: str) -> list[str]:
+    """Every '[^...]' that is not a clean '[^N]' — the same test build_site.py applies."""
+    return sorted({m for m in ANY_MARKER_RE.findall(md_text) if not CLEAN_MARKER_RE.fullmatch(m)})
 
 
 def footnote_gap(md_text: str) -> tuple[set[str], set[str], bool]:
@@ -64,7 +85,10 @@ SYSTEM_PROMPT = (
     "[^N] immediately after the claim (e.g., 'asciminib showed 95.2% MMR at Week 96[^1]'). "
     "Collect every reference in a single '## References' section at the very end of the "
     "report, one entry per line:\n"
-    "[^1]: Author A et al. *Journal* Year. [DOI 10.xxx/yyy](https://doi.org/10.xxx/yyy)"
+    "[^1]: Author A et al. *Journal* Year. [DOI 10.xxx/yyy](https://doi.org/10.xxx/yyy)\n"
+    "A marker is exactly [^N] with nothing else inside the brackets — never "
+    "'[^7 - carried over]' or '[^4 — note: prior week]'. When you re-cite a source from "
+    "the previous report, use a plain numbered marker and repeat its reference line."
 )
 
 
@@ -161,6 +185,16 @@ def call_claude(mode: str, journals: list, web: list) -> str:
             f"{mode}: model returned no text blocks (stop_reason={msg.stop_reason!r}). "
             "Aborting before the repair turn, which would send an empty assistant "
             "message and fail with an opaque BadRequestError."
+        )
+
+    report, rewritten = normalise_markers(report)
+    if rewritten:
+        print(f"  ! Normalised {len(rewritten)} annotated marker(s): {rewritten[:5]}")
+    stray = stray_markers(report)
+    if stray:
+        raise RuntimeError(
+            f"{mode}: footnote markers that are not a clean [^N]: {stray[:8]}. "
+            "build_site.py would refuse this report; aborting so the workflow fails loud."
         )
 
     missing, _, has_header = footnote_gap(report)

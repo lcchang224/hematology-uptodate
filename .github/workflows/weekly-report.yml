@@ -45,6 +45,14 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: uv run python scripts/generate_report.py
 
+      # The same build Cloudflare runs on push. Cloudflare's failure is silent
+      # (the site just stays at last week); here it turns the run red before
+      # anything is committed.
+      - name: Verify the site builds
+        env:
+          PYTHONUTF8: "1"
+        run: uv run python build_site.py
+
       - name: Build manifest
         run: uv run python scripts/build_manifest.py
 

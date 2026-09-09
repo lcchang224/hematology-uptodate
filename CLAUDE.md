@@ -198,6 +198,9 @@ Always add a brief Taiwan-specific note for each report:
    grep -c '^## References' $F   # must be 1
    ```
    `build_site.py` will refuse to build any report with unresolved markers — do not skip this.
+   A marker must be exactly `[^N]`. An annotated one such as `[^7 - carried over]` passes the
+   count above but fails the site build (this hid 2026-W36 for five days); `generate_report.py`
+   now normalises and rejects these, and the weekly workflow runs `build_site.py` before committing.
 4. Commit: `git add reports/<mode>-YYYY-WNN.md && git commit -m "report: <mode> YYYY-WNN"`
 5. Push → GitHub Action auto-publishes to Wiki
 
