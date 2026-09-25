@@ -1,0 +1,121 @@
+# Hematology (Non-malignant) Weekly Report — 2026-W39
+
+> Generated: 2026-09-25 | Sources: CrossRef (*Blood*, *Blood Advances*, *BJH*, *AJH*, *Haematologica*), ISTH News, EHA News, EAHAD News
+> Coverage: 2026-09-11 to 2026-09-25 | Mode: Non-malignant Hematology
+
+---
+
+## Summary
+
+This week's literature delivers substantive new data in hemophilia A therapeutics, pediatric AIHA phenotyping, TTP-related cerebrovascular injury, pyruvate kinase deficiency real-world outcomes, and VTE recurrence risk stratification by thrombophilia subtype, alongside a large multicenter description of hemophilic arthropathy pain mechanisms. First, a *Blood* preclinical/translational report introduces Inno8, an orally administered bispecific antibody fragment that bridges factors IXa and X to mimic FVIIIa activity, showing ~90-fold greater in vitro potency than a sequence-identical emicizumab analogue, a ~10-fold increase in oral exposure in rats after isoelectric point engineering, and a 115-hour half-life with 0.215% oral bioavailability in beagle dogs, with first-in-human dosing already completed in the VOYAGER1 trial[^1]. Second, a *Blood Advances* multicenter study of 399 pediatric AIHA patients across 15 centers finds that 82% of those tested had abnormal functional immune results, that Evans syndrome (37%), other autoimmunity (22%), and inborn errors of immunity (18%, with 32% of genetically tested patients showing pathogenic findings) dominate secondary etiologies, and that recurrent AIHA (42% of the cohort) is strongly associated with abnormal immune testing (OR 2.29, p=0.012), Evans syndrome (OR 4.85, p<0.001), and IEI (OR 3.88, p<0.001)[^2]. Third, an *AJH* prospective MRI study in immune-mediated TTP demonstrates that cerebral small vessel disease is present in 48% of acute iTTP patients versus 27% of controls (OR 3.19, 95% CI 1.00–10.14) and progresses over one year despite hematologic remission, with moderate-to-high burden increasing from 27% to 41% at follow-up (age/sex-adjusted OR 7.00, 95% CI 1.65–29.74)[^3]. Fourth, a *Blood Advances* systematic review and meta-analysis of 51 studies (n=34,623) quantifies recurrent VTE risk after anticoagulation discontinuation by thrombophilia subtype, finding an approximately twofold to threefold increased risk with antiphospholipid syndrome, antithrombin deficiency, homozygous factor V Leiden, and compound heterozygous FVL/prothrombin mutation, versus a 1.5-fold increase with heterozygous FVL or prothrombin mutation alone[^4]. Fifth, real-world experience of mitapivat in pyruvate kinase deficiency was reported in *AJH*, complementing the growing evidence base for this first-in-class pyruvate kinase activator[^5].
+
+---
+
+## I. Immune Thrombocytopenia (ITP)
+
+New data this week center on the intersection of ITP with malignancy-directed cellular therapy rather than de novo mechanistic advances. An *AJH* report examines immune effector cell therapies used to manage immune thrombocytopenia occurring concurrently with hematologic malignancy, addressing a challenging clinical scenario in which TPO-RA and immunosuppressive approaches must be balanced against underlying disease control, though granular response data were not available in the abstract[^6]. No new data on daratumumab, BAFF-directed therapy, or B-cell resistance biology were identified this week, consistent with the absence of major ITP-focused mechanistic publications following last week's romiplostim and avatrombopag updates[^7],[^8].
+
+## II. TTP / HUS / Thrombotic Microangiopathy
+
+Beyond the final rADOMTS13 analysis reported last week[^9], this week's most clinically important addition is a prospective *AJH* study characterizing cerebral small vessel disease (cSVD) in immune-mediated TTP during the acute phase and remission[^3]. In 25 patients with acute iTTP (median age 56 years, 60% women) compared with age-matched controls, acute focal ischemic lesions were detected in 52% at baseline. cSVD — defined by a standardized 0–4 score incorporating lacunes, microbleeds, white matter hyperintensities, and enlarged perivascular spaces — was present in 48% of iTTP patients versus 27% of controls, with moderate burden (score ≥2) in 24% versus none of the controls; ordinal logistic regression confirmed an independent association between iTTP and higher cSVD burden (OR 3.19, 95% CI 1.00–10.14) after adjustment for traditional cardiovascular risk factors. Critically, in 22 patients with paired one-year follow-up imaging, cSVD prevalence rose from 50% to 64% and moderate-to-high burden increased from 27% to 41%, with six patients (27%) showing frank score progression despite hematological remission; at one year, patients had substantially higher odds of greater cSVD burden than controls (age- and sex-adjusted OR 7.00, 95% CI 1.65–29.74). These findings suggest ongoing subclinical cerebrovascular injury in iTTP survivors that is not captured by conventional hematologic remission criteria and may warrant longitudinal neuroimaging surveillance and closer attention to vascular risk factor modification in this population.
+
+## III. Aplastic Anemia
+
+_No new signal this week_ — no new mechanistic or trial data on aplastic anemia were identified in this week's journal or news scan beyond conference abstract listings already covered in prior cycles.
+
+## IV. PNH — Paroxysmal Nocturnal Hemoglobinuria
+
+No new peer-reviewed journal data on PNH were identified in this week's CrossRef pull. EHA News conference abstract listings referencing iptacopan monotherapy efficacy, splenectomy outcomes in PNH, and comparative oral complement inhibitor data (including MY008211A versus eculizumab) continue to circulate from earlier congress cycles, but these are abstract-tracker entries without new peer-reviewed primary data this week and are not restated here to avoid duplicating unverified conference figures[^10].
+
+## V. Hemophilia A & B (including gene therapy)
+
+The standout development is the *Blood* preclinical and early clinical characterization of Inno8, a novel orally administered FVIIIa-mimetic bispecific single-chain antibody fragment engineered from llama and alpaca heavy-chain antibody domains to bridge factors IXa and X[^1]. Structure-guided and machine learning-assisted engineering reduced the molecule's isoelectric point to enhance oral bioavailability while fatty acid conjugation extended systemic exposure. In vitro procoagulant activity assays in hemophilia A plasma and whole blood demonstrated, on average, 90-fold greater potency than a sequence-identical emicizumab analogue. Reducing the isoelectric point increased oral exposure approximately 10-fold in rats, and a tablet formulation combining the permeation enhancer SNAC with the solubilizing agent niacinamide achieved measurable oral bioavailability (0.215% with 4-hour post-dose fasting) and a 115-hour half-life in beagle dogs. First-in-human dosing has already been completed under the VOYAGER1 trial (NCT06649630), positioning Inno8 as a potential first oral prophylactic alternative to subcutaneous FVIIIa-mimetic antibodies for hemophilia A, pending further clinical evaluation. This builds directly on last week's *Blood* report of a neutrophil-dependent, type-I interferon-driven pathway in hemophilic arthropathy[^11], and is complemented this week by a *Blood Advances* mechanistic study characterizing a mouse model of hemophilia A pain, which demonstrates that hemarthropathy induces significant elevation in circulating serum amyloid P and interleukin-6, along with joint-level increases in neutrophil elastase, myeloperoxidase, mast cell degranulation, substance P, and calcitonin gene-related peptide, with only partial improvement in pain behaviors after recombinant FVIII treatment — underscoring that pain may persist despite adequate factor replacement and highlighting inflammation-targeted approaches as a complementary therapeutic avenue[^12].
+
+## VI. Von Willebrand Disease
+
+_No new signal this week_
+
+## VII. Thalassemia (alpha & beta; Taiwan-relevant)
+
+A BJH multicenter cross-sectional study of 994 adult transfusion-dependent thalassemia (TDT) patients from the Extension-Myocardial Iron Overload in Thalassemia network establishes pancreatic iron loading, measured by R2* MRI, as a robust biomarker for endocrine complications[^13]. Overall, 60.4% of patients had at least one endocrine disorder, and multivariable regression identified age, splenectomy, pancreatic R2*, and cardiac R2* as independent predictors of endocrine dysfunction, with a significant interaction between pancreatic and cardiac iron; a pancreatic R2* threshold >80.86 Hz was identified as the best cut-off for predicting endocrine disorders, and this association persisted even after excluding diabetic patients, with pancreatic iron severity tracking with the number of concurrent endocrinopathies. This supports incorporating pancreatic iron quantification into routine TDT surveillance protocols, a consideration directly relevant to Taiwan's national thalassemia transfusion and chelation monitoring programs. Separately, a *BJH* study from Saudi Arabia's sickle cell cohort — which includes patients with sickle β⁰-thalassemia — reported that higher baseline lactate dehydrogenase was associated with ischemic stroke risk (IRR 1.46 per 100 U/L, 95% CI 1.11–1.91, p=0.007) with a protective trend for fetal hemoglobin (IRR 0.55 per 5% increase, 95% CI 0.29–1.06, p=0.07), offering hemoglobinopathy-relevant stroke risk stratification data of tangential interest to thalassemia intermedia/HbE-beta thalassemia risk modeling in Asian populations[^14].
+
+## VIII. Autoimmune Hemolytic Anemia (AIHA)
+
+This week's most substantial pediatric AIHA contribution comes from a *Blood Advances* multicenter cohort of 399 children across 15 pediatric centers, designed to characterize factors associated with secondary diagnoses, chronicity, treatment response, and mortality[^2]. Secondary diagnoses were identified in the majority of patients, including Evans syndrome in 142/385 (37%), other autoimmunity in 86/392 (22%), and inborn errors of immunity (IEI) in 68/379 (18%); among 305 patients who underwent functional immune testing, 82% had abnormal results, and genetic testing performed in 109/348 patients (31%) yielded pathogenic findings in 32% of those tested. Patients with IEI or other autoimmunity more frequently displayed abnormal immunoglobulin and complement testing, though IEI prevalence did not differ by presence or absence of an infectious trigger. The median number of treatments for the first AIHA episode was 2 (range 0–17), and 31% of warm AIHA patients received steroid-sparing therapy during the first episode. Recurrent AIHA, observed in 42% of the cohort, was strongly associated with abnormal immune tests (OR 2.29, p=0.012), Evans syndrome (OR 4.85, p<0.001), IEI (OR 3.88, p<0.001), and other autoimmune disorders (OR 3.29, p<0.001); with median follow-up of 4.9 years, 72/257 (28%) of warm AIHA patients had active disease on treatment, and all 10 deaths in the cohort occurred among patients with secondary diagnoses. An accompanying *Blood Advances* commentary frames these findings as redefining pediatric AIHA beyond a purely hemolytic paradigm toward an immune-dysregulation-centered diagnostic approach, arguing for routine, expansive immune evaluation at diagnosis[^15]. These data substantially extend and contextualize last week's sirolimus trial results in adult relapsed/refractory warm AIHA and Evans syndrome[^16], together reinforcing steroid-sparing and immune-targeted strategies as increasingly central across the age spectrum. A complementary *Haematologica* perspective addresses the overlapping biology of AIHA and chronic lymphocytic leukemia, discussing diagnostic and therapeutic considerations at the border of autoimmunity and malignancy, though this is oncology-adjacent territory noted here for cross-reference rather than benign-disease primary content[^17].
+
+## IX. Red Cell Disorders (G6PD, PK deficiency, hereditary spherocytosis)
+
+An *AJH* report provides real-world experience of mitapivat in pyruvate kinase (PK) deficiency, extending the clinical evidence base for this oral PK activator beyond the pivotal ACTIVATE and ACTIVATE-T trial populations into routine practice settings, though granular hemoglobin response and transfusion-reduction figures were not available in the abstract[^5]. This real-world dataset is a meaningful complement to prior controlled-trial data given the rarity of PK deficiency and the paucity of long-term, non-trial outcome data for mitapivat, which carries increasing relevance for Taiwan given its recent conditional access pathways for enzymopathy-directed therapies.
+
+## X. Iron Deficiency & Nutritional Anemias
+
+_No new signal this week_
+
+## XI. Thrombosis & Coagulation (VTE, APS, inherited thrombophilia)
+
+A *Blood Advances* systematic review and meta-analysis addresses one of the most persistently debated questions in thrombophilia management: whether inherited or acquired thrombophilia meaningfully predicts recurrent VTE after anticoagulation discontinuation[^4]. Across 51 studies encompassing 34,623 patients (42.3% female, 33.5% with unprovoked index VTE), antiphospholipid syndrome, antithrombin deficiency, homozygous factor V Leiden, and compound heterozygous FVL/prothrombin G20210A mutation carriers each showed an approximately twofold to threefold increased risk of recurrent VTE, while heterozygous FVL or isolated prothrombin mutation carriers showed a more modest 1.5-fold increased risk; evidence regarding protein S and protein C deficiency remained inconclusive due to heterogeneity, and overall certainty of evidence was graded predominantly moderate. An accompanying *Blood Advances* perspective piece explicitly interrogates whether thrombophilia testing "truly affects risk," reinforcing a cautious, risk-stratified approach to testing indications and anticoagulation duration decisions rather than reflexive universal panel testing[^18]. Separately, a mechanistic *Blood* study identifies a novel direct procoagulant role for B-type natriuretic peptide (BNP) via its receptor NPRA on platelets, showing that BNP incubation increases intracellular cGMP and enhances platelet aggregation, granule secretion, spreading, and clot retraction in vitro, while NPRA-deficient mice show prolonged tail bleeding times, delayed arterial occlusion after vascular injury, and resistance to BNP-induced thrombus acceleration in FeCl₃ carotid injury and thromboplastin-induced pulmonary embolism models[^19]. This reframes BNP from a purely biomarker role in cardiovascular disease to a potential direct contributor to thrombotic risk, with implications for risk assessment in patients with elevated natriuretic peptides and comorbid thrombotic disease. A French multicenter cohort study (HEMOTHEPP) examining superficial vein thrombosis during pregnancy and postpartum was also published in *AJH*, though detailed incidence and outcome figures were not available in the abstract[^20].
+
+## XII. Active High-Priority Trials — Tracker
+
+| Trial / Agent | Disease | Phase | Status this week |
+|---|---|---|---|
+| rADAMTS13 (recombinant ADAMTS13) | Congenital TTP | Phase 3 (crossover, final analysis) | Final 18-month analysis published last week; no new follow-up this week[^9] |
+| Sirolimus | Refractory warm AIHA / Evans syndrome | Prospective single-center | 12-month durability data reported last week; no new update this week[^16] |
+| Inno8 (oral FVIIIa-mimetic) | Hemophilia A | First-in-human (VOYAGER1) | Preclinical/PK characterization published this week; FIH dosing completed[^1] |
+| Mitapivat | Pyruvate kinase deficiency | Real-world/post-marketing | Real-world experience report published this week[^5] |
+| Avatrombopag | THPO-mutated congenital amegakaryocytic thrombocytopenia | Case-level salvage use | Reported last week; no new data this week[^21] |
+
+## XIII. Taiwan Clinical Context
+
+Taiwan's national thalassemia carrier screening program (alpha-thalassemia carrier prevalence approximately 4–5%, beta-thalassemia approximately 1–2%) makes this week's pancreatic iron-endocrine complication data from the Extension-MIOT network directly actionable[^13]: incorporation of pancreatic R2* MRI alongside the cardiac and hepatic T2*/R2* sequences already used in NHI-reimbursed TDT surveillance in Taiwan could improve early detection of diabetes, hypogonadism, and hypothyroidism in the transfusion-dependent population followed at NTUH, CGMH, and VGH thalassemia centers. For hemophilia care, emicizumab is NHI-reimbursed in Taiwan for hemophilia A with and without inhibitors, and the emergence of an oral FVIIIa-mimetic candidate (Inno8) in first-in-human evaluation this week signals a potential future non-injectable prophylactic option that would be of particular interest for pediatric and needle-averse populations in Taiwanese hemophilia treatment centers. Given Taiwan's estimated G6PD deficiency prevalence of 2–3% among males, particularly in southern and outlying island populations, the real-world mitapivat data in PK deficiency this week is a useful comparator as enzymopathy-directed therapies expand in the region, even though PK deficiency itself remains rarer than G6PD deficiency locally. The pediatric AIHA immune-dysregulation findings also carry practical relevance for Taiwanese pediatric hematology-immunology referral pathways, supporting closer collaboration between hematology and clinical immunology services when Evans syndrome or recurrent AIHA is encountered in children.
+
+## XIV. Key Takeaways
+
+The week's data collectively push two long-standing benign hematology paradigms toward reassessment: first, that oral, non-injectable hemostatic prophylaxis for hemophilia A is now in active human testing via a genuinely novel FVIIIa-mimetic antibody fragment platform rather than remaining a theoretical goal[^1]; and second, that pediatric AIHA should increasingly be approached as a sentinel presentation of broader immune dysregulation — including inborn errors of immunity in nearly one-fifth of cases — rather than a standalone hemolytic disorder, with direct implications for diagnostic algorithms and steroid-sparing treatment selection[^2]. The TTP cSVD data add a sobering dimension to iTTP survivorship, demonstrating that standard hematologic remission does not equate to neurological safety and that silent cerebrovascular injury can progress over the first year post-acute episode[^3]. Meanwhile, the large VTE recurrence meta-analysis provides much-needed quantitative granularity for individualizing anticoagulation duration decisions by specific thrombophilia genotype rather than a binary thrombophilia-positive/negative framework[^4], and the identification of BNP as a direct platelet agonist via NPRA offers a mechanistic bridge between cardiovascular biomarker elevation and thrombotic risk that may eventually inform risk stratification in patients with concurrent cardiac and thrombotic disease[^19].
+
+---
+
+## XV. Media Digest
+
+| Source | Headline | Date | Relevance |
+|---|---|---|---|
+| ISTH News | ISTH Clinical Practice Guidelines (portal update) | 2025-04-30 | General resource update; no new guideline content this week |
+| EHA News | Real-world experience with iptacopan in PNH (Ting Wu) | 2026-05-12 | Conference abstract tracker; superseded by need for peer-reviewed follow-up |
+| EHA News | Oral MY008211A demonstrates efficacy vs eculizumab (Fengkui Zhang) | 2026-05-17 | Conference abstract tracker; awaiting peer-reviewed publication |
+| EAHAD News | European guidelines for certification of Haemophilia Centres | 2026-01-03 | Ongoing quality-standards initiative relevant to comprehensive care center accreditation |
+| EAHAD News | Module 23: Bleeding disorder of unknown cause & Ultra-Rare Bleeding Disorders | 2026-06-02 | Educational resource; no new primary data |
+
+_Note: Several ISTH/EHA/EAHAD News items in this week's scrape are recurring conference-archive or resource-portal listings with historical publication dates (2012–2025) that do not represent new content; these are excluded from substantive discussion above to avoid misrepresenting stale material as current news._
+
+---
+
+## Journal Literature — CrossRef
+
+Beyond the items discussed above, the following benign-hematology-relevant articles appeared in this week's CrossRef pull but did not carry sufficient abstract detail for full clinical discussion: a *Haematologica* case study on avatrombopag salvage therapy in THPO-mutated congenital amegakaryocytic thrombocytopenia post-allogeneic HSCT (previously covered)[^21]; a *BJH* study on parvovirus B19 infection genotype-dependent severity and hydroxyurea influence in pediatric sickle cell disease, finding higher immunoglobulin G seroconversion rates and distinct clinical presentation in HbSC versus HbSS/Sβ⁰ genotypes, with hydroxyurea associated with higher hemoglobin and reduced transfusion requirements in HbSS/Sβ⁰ patients[^22]; and a *BJH* longitudinal cohort from Saudi Arabia examining stroke incidence and phenotype in sickle cell disease, finding an overall stroke incidence of 0.64 per 100 patient-years with cumulative incidence of overt ischemic stroke reaching 5.0% and silent cerebral infarcts 18.6% by age 30[^14].
+
+---
+
+## References
+
+[^1]: Lund J et al. *Blood*. 2026. [DOI 10.1182/blood.2026034676](https://doi.org/10.1182/blood.2026034676)
+[^2]: Harris E et al. *Blood Advances*. 2026. [DOI 10.1182/bloodadvances.2026020023](https://doi.org/10.1182/bloodadvances.2026020023)
+[^3]: Truma A et al. *American Journal of Hematology*. 2026. [DOI 10.1002/ajh.70506](https://doi.org/10.1002/ajh.70506)
+[^4]: Vrotniakaite-Bajerciene K et al. *Blood Advances*. 2026. [DOI 10.1182/bloodadvances.2026020623](https://doi.org/10.1182/bloodadvances.2026020623)
+[^5]: Pedone G et al. *American Journal of Hematology*. 2026. [DOI 10.1002/ajh.70504](https://doi.org/10.1002/ajh.70504)
+[^6]: Deshpande S et al. *American Journal of Hematology*. 2026. [DOI 10.1002/ajh.70505](https://doi.org/10.1002/ajh.70505)
+[^7]: Chugh S et al. *British Journal of Haematology*. 2026 (real-world romiplostim dosing in pediatric ITP, as cited in prior report).
+[^8]: Al-Samkari H, Soff G. *Blood*. 2026. [DOI 10.1182/blood.2026034099](https://doi.org/10.1182/blood.2026034099)
+[^9]: Coppo P et al. *Blood* / related trial report. 2026 (final analysis of phase 3 rADAMTS13 crossover trial, as cited in prior report).
+[^10]: EHA News conference abstract archive, PNH iptacopan sessions. 2025–2026. [https://news.google.com/rss](https://news.google.com/rss)
+[^11]: Blood mechanistic study on neutrophil-dependent type-I interferon pathway in hemophilic arthropathy. *Blood*. 2026 (as cited in prior report).
+[^12]: Fouda R et al. *Blood Advances*. 2026. [DOI 10.1182/bloodadvances.2025019420](https://doi.org/10.1182/bloodadvances.2025019420)
+[^13]: Meloni A et al. *British Journal of Haematology*. 2026. [DOI 10.1111/bjh.70840](https://doi.org/10.1111/bjh.70840)
+[^14]: Al-Agha M et al. *British Journal of Haematology*. 2026. [DOI 10.1111/bjh.70830](https://doi.org/10.1111/bjh.70830)
+[^15]: Chonat S, Desai N. *Blood Advances*. 2026. [DOI 10.1182/bloodadvances.2026021501](https://doi.org/10.1182/bloodadvances.2026021501)
+[^16]: Prospective single-center trial of sirolimus in relapsed/refractory warm AIHA and Evans syndrome. *Blood Advances*. 2026 (as cited in prior report).
+[^17]: Coscia M, Arcaini L. *Haematologica*. 2026. [DOI 10.3324/haematol.2026.301716](https://doi.org/10.3324/haematol.2026.301716)
+[^18]: Baumann Kreuziger L, Houghton D. *Blood Advances*. 2026. [DOI 10.1182/bloodadvances.2026021420](https://doi.org/10.1182/bloodadvances.2026021420)
+[^19]: Zhang Y et al. *Blood*. 2026. [DOI 10.1182/blood.2026035455](https://doi.org/10.1182/blood.2026035455)
+[^20]: Laouenan E et al. *American Journal of Hematology*. 2026. [DOI 10.1002/ajh.70503](https://doi.org/10.1002/ajh.70503)
+[^21]: Jian J et al. *Haematologica*. 2026. [DOI 10.3324/haematol.2026.301304](https://doi.org/10.3324/haematol.2026.301304)
+[^22]: Bleeke M et al. *British Journal of Haematology*. 2026. [DOI 10.1111/bjh.70809](https://doi.org/10.1111/bjh.70809)
