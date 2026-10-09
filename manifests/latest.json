@@ -1,6 +1,11 @@
 {
-  "generated": "2026-09-25T03:44:42+00:00",
+  "generated": "2026-10-09T04:52:31+00:00",
   "weeks": [
+    {
+      "week": "2026-W41",
+      "benign_url": "https://report.lcchema.cc/benign-2026-W41.html",
+      "malignant_url": "https://report.lcchema.cc/malignant-2026-W41.html"
+    },
     {
       "week": "2026-W39",
       "benign_url": "https://report.lcchema.cc/benign-2026-W39.html",
@@ -10,11 +15,6 @@
       "week": "2026-W38",
       "benign_url": "https://report.lcchema.cc/benign-2026-W38.html",
       "malignant_url": "https://report.lcchema.cc/malignant-2026-W38.html"
-    },
-    {
-      "week": "2026-W36",
-      "benign_url": "https://report.lcchema.cc/benign-2026-W36.html",
-      "malignant_url": "https://report.lcchema.cc/malignant-2026-W36.html"
     }
   ]
 }
