@@ -4,6 +4,13 @@ on:
   schedule:
     - cron: '0 0 * * 5'   # Friday 00:00 UTC = Friday 08:00 Taipei (UTC+8)
   workflow_dispatch:        # allow manual trigger from GitHub Actions UI
+    inputs:
+      test_only:
+        description: >-
+          Test run: generate both reports and check the site builds, then upload
+          the reports as an artifact. Nothing is committed or published.
+        type: boolean
+        default: false
 
 permissions:
   contents: write           # needed to commit reports/ back to the repo
@@ -53,10 +60,26 @@ jobs:
           PYTHONUTF8: "1"
         run: uv run python build_site.py
 
+      - name: Collect this week's reports (test run)
+        if: ${{ inputs.test_only }}
+        run: |
+          WEEK=$(python -c "from datetime import date; d=date.today(); print(f'{d.year}-W{d.isocalendar()[1]:02d}')")
+          mkdir -p test-output
+          cp reports/*-"$WEEK".md test-output/
+
+      - name: Upload test output
+        if: ${{ inputs.test_only }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-test-output
+          path: test-output/
+
       - name: Build manifest
+        if: ${{ !inputs.test_only }}
         run: uv run python scripts/build_manifest.py
 
       - name: Commit reports + manifest to repository
+        if: ${{ !inputs.test_only }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

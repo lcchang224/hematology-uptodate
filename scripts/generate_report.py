@@ -55,26 +55,58 @@ CLAUDE_MD = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
 
 MODES = ("malignant", "benign")
 
-# Model config. Sonnet 5 for the weekly report: this is the hard job (a ~7,000
-# token report whose 30-40 footnote markers must all resolve). The daily digest
-# stays on Haiku 4.5, which handles short summaries fine.
+# Model config. Claude Opus 5.5 since 2026-11-18 (Sonnet 5 before): this is the
+# hard job, a ~7,000-token report whose 30-40 footnote markers must all resolve.
 #
-# NOTE: thinking is explicitly disabled. On Sonnet 5 adaptive thinking is ON by
-# default when the field is omitted (unlike Sonnet 4.6), and max_tokens caps
-# thinking + response text *together* — so leaving it implicit would eat the
-# budget the report needs and truncate mid-references.
-MODEL      = "claude-sonnet-5"
-MAX_TOKENS = 16000   # observed reports run 5.2k-7.6k tokens; 8192 left almost no headroom
-THINKING   = {"type": "disabled"}
+# NOTE: thinking cannot be disabled on Opus 5.5 ({"type": "disabled"} is a 400);
+# effort is the only control. Thinking counts toward max_tokens together with
+# the report text, so MAX_TOKENS carries room for both (observed reports alone:
+# 5.2k-7.6k tokens). A limit this size needs streaming: the SDK refuses a
+# non-streaming request whose max_tokens implies more than 10 minutes.
+#
+# Requests go through the beta endpoint for the server-side refusal fallback
+# (`fallbacks: "default"`, beta server-side-fallback-2026-07-01). The pinned SDK
+# (0.99.0) predates a typed `fallbacks` argument, so it travels in extra_body.
+MODEL        = "claude-opus-5-5"
+EFFORT       = "medium"
+MAX_TOKENS   = 64000
+REPAIR_MAX_TOKENS = 16000
+BETAS        = ["server-side-fallback-2026-07-01"]
+FALLBACKS    = {"fallbacks": "default"}
+
+
+def _block_type(b):
+    return b.get("type") if isinstance(b, dict) else getattr(b, "type", None)
 
 
 def response_text(msg) -> str:
-    """Concatenate text blocks, skipping thinking/other block types.
+    """Concatenate text blocks, skipping thinking/fallback/other block types.
 
     msg.content[0] is not reliably the text block once thinking is enabled,
-    so never index into content directly.
+    so never index into content directly. A block type the pinned SDK does not
+    know (e.g. `fallback`) may arrive as a plain dict, hence _block_type().
     """
-    return "".join(b.text for b in msg.content if b.type == "text").strip()
+    return "".join(
+        (b.get("text", "") if isinstance(b, dict) else getattr(b, "text", ""))
+        for b in msg.content if _block_type(b) == "text"
+    ).strip()
+
+
+def create_message(client, messages, max_tokens):
+    """One streamed request; returns the final message."""
+    with client.beta.messages.stream(
+        model=MODEL,
+        max_tokens=max_tokens,
+        system=SYSTEM_PROMPT,
+        output_config={"effort": EFFORT},
+        betas=BETAS,
+        extra_body=FALLBACKS,
+        messages=messages,
+    ) as stream:
+        msg = stream.get_final_message()
+    if getattr(msg, "model", MODEL) != MODEL:
+        print(f"  ! Served by fallback model {msg.model} (the requested model declined).")
+    return msg
 
 SYSTEM_PROMPT = (
     "You are a senior hematologist writing structured weekly clinical update reports "
@@ -153,13 +185,7 @@ def call_claude(mode: str, journals: list, web: list) -> str:
     user_msg = build_prompt(mode, journals, web)
     messages = [{"role": "user", "content": user_msg}]
 
-    msg = client.messages.create(
-        model=MODEL,
-        max_tokens=MAX_TOKENS,
-        system=SYSTEM_PROMPT,
-        thinking=THINKING,
-        messages=messages,
-    )
+    msg = create_message(client, messages, MAX_TOKENS)
     report = response_text(msg)
 
     # Fail loud on every non-publishable outcome BEFORE the repair turn. The
@@ -220,13 +246,12 @@ def call_claude(mode: str, journals: list, web: list) -> str:
         "(journal + year + title) — do not skip any marker."
     )})
 
-    msg2 = client.messages.create(
-        model=MODEL,
-        max_tokens=4096,
-        system=SYSTEM_PROMPT,
-        thinking=THINKING,
-        messages=messages,
-    )
+    msg2 = create_message(client, messages, REPAIR_MAX_TOKENS)
+    if msg2.stop_reason in ("refusal", "max_tokens"):
+        raise RuntimeError(
+            f"{mode}: references repair turn ended with stop_reason={msg2.stop_reason!r}. "
+            "Aborting so the workflow fails loud."
+        )
     refs_block = response_text(msg2)
 
     # Strip any accidental preamble before the header.
